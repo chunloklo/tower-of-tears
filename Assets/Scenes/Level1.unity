@@ -14092,7 +14092,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.8371778, b: 0.104477584, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -14280,13 +14280,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.22518006, y: -0, z: -0, w: 0.9743172}
+  m_LocalPosition: {x: 6.23, y: 6.86, z: -10.63}
+  m_LocalScale: {x: 0.74451244, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.027, y: 0, z: 0}
 --- !u!1 &681829117
 GameObject:
   m_ObjectHideFlags: 0
@@ -14379,7 +14379,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 681829117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.72, y: 0.5, z: -0.15}
+  m_LocalPosition: {x: 4.57, y: 0.5, z: 5.3}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1777278889}
@@ -14479,7 +14479,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 780010815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.39, y: 0.5, z: -0.35}
+  m_LocalPosition: {x: -0.51, y: 0.46, z: 5.35}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1716556141}
@@ -23782,7 +23782,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0.009360313, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -37615,7 +37615,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.10588235, g: 0.23934308, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -37651,7 +37651,7 @@ Transform:
   m_GameObject: {fileID: 1393204021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48000002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -0.725}
   m_Children: []
   m_Father: {fileID: 681829122}
   m_RootOrder: 1
@@ -42307,8 +42307,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.10588235, g: 1, b: 0.27498645, a: 1}
-  m_Intensity: 0
+  m_Color: {r: 0, g: 1, b: 0.18859649, a: 1}
+  m_Intensity: 1
   m_Range: 5
   m_SpotAngle: 30
   m_CookieSize: 10
