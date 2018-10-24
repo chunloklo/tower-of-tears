@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class CheckpointListener : MonoBehaviour {
 
+    public GameObject resetTrigger;
+    private ResetPlayer resetScript;
     public GameObject pointLight;
     public GameObject fire;
     private CheckpointActivator ca;
+    private bool firstTrig;
 
     // Use this for initialization
     void Start()
     {
-
+        resetScript = resetTrigger.GetComponent<ResetPlayer>();
+        firstTrig = false;
     }
 
     public void OnTriggerEnter(Collider c)
@@ -21,11 +25,17 @@ public class CheckpointListener : MonoBehaviour {
             ca = c.attachedRigidbody.gameObject.GetComponent<CheckpointActivator>();
             if (ca != null)
             {
-                Debug.Log("CHARACTER COLLIDED WITH OBJECT");
-                //EventManager.TriggerEvent<BombBounceEvent, Vector3>(c.transform.position);
-                ca.ActivateCheckpoint();
-                pointLight.SetActive(true);
-                fire.SetActive(true);
+                if (!firstTrig)
+                {
+                    Debug.Log(resetTrigger);
+                    firstTrig = true;
+                    Debug.Log("CHARACTER COLLIDED WITH CHECKPOINT");
+                    ca.ActivateCheckpoint();
+                    pointLight.SetActive(true);
+                    fire.SetActive(true);
+
+                    resetScript.UpdateRespawn();
+                }
             }
         }
     }
