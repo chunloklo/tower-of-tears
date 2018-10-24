@@ -54,7 +54,7 @@ public class EnemyAttack : MonoBehaviour
 		if(playerHealth.currentHealth <= 0)
 		{
 			Destroy (player);
-			Debug.Log ("PLAYER DEAD");
+//			Debug.Log ("PLAYER DEAD");
 		}
 	}
 
