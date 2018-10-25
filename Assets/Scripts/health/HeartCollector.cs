@@ -13,7 +13,7 @@ public class HeartCollector : MonoBehaviour
         hasHeart = false;
     }
 
-    public void ReceiveBall()
+    public void ReceiveHeart()
     {
         hasHeart = true;
     }

@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 851618935}
   - component: {fileID: 851618936}
   - component: {fileID: 851618937}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Character
   m_TagString: MovingWaypointCube
   m_Icon: {fileID: 0}
@@ -642,7 +642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eefa98ac7919c9468ae05c73be52e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 851618929}
   heart: {fileID: 1754820003}
+  heartHealthVal: 10
 --- !u!95 &1163987389
 Animator:
   serializedVersion: 3
@@ -848,8 +850,7 @@ GameObject:
   - component: {fileID: 1754820008}
   - component: {fileID: 1754820007}
   - component: {fileID: 1754820006}
-  - component: {fileID: 1754820005}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,17 +871,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &1754820005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1754820003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1223da9f9f1244e49aa0b164e5d69b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1754820006
 CapsuleCollider:
   m_ObjectHideFlags: 0

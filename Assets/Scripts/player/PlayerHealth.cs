@@ -63,6 +63,22 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void ReceiveHealth(int amount)
+    {
+
+        currentHealth += amount;
+
+        if (currentHealth > 30)
+        {
+            damaged = false;
+            currentHealth = 30;
+        }
+
+        //        healthSlider.value = currentHealth;
+
+        //        playerAudio.Play ();
+    }
+
 
     void Death ()
     {
@@ -76,7 +92,9 @@ public class PlayerHealth : MonoBehaviour
 //        playerAudio.Play ();
 
         playerMovement.enabled = false;
-//        playerShooting.enabled = false;
+        //        playerShooting.enabled = false;
+
+        Debug.Log("PLAYER HAS DIED");
     }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetPlayer : MonoBehaviour {
     
-    public int fallDamage = 1;
+    public int fallDamage = 10;
     public GameObject checkpoint1;
 
     GameObject player;

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CollectibleHeart : MonoBehaviour {
 
+    public GameObject player;
     public GameObject heart;
+    public int heartHealthVal = 10;
     private HeartCollector hc;
+    private PlayerHealth ph;
     private Animator anim;
 
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
         if (anim == null)
+        {
             Debug.Log("Animator could not be found");
+        }
+        ph = player.GetComponent<PlayerHealth>();
     }
 
     public void OnTriggerEnter(Collider c)
@@ -22,11 +28,11 @@ public class CollectibleHeart : MonoBehaviour {
             hc = c.attachedRigidbody.gameObject.GetComponent<HeartCollector>();
             if (hc != null)
             {
-                Debug.Log("CHARACTER COLLIDED WITH OBJECT");
                 EventManager.TriggerEvent<BombBounceEvent, Vector3>(c.transform.position);
-                hc.ReceiveBall();
+                hc.ReceiveHeart();
                 Destroy(heart);
                 Destroy(this.gameObject);
+                ph.ReceiveHealth(heartHealthVal);
             }
         }
     }
