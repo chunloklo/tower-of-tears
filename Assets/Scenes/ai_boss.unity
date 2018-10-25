@@ -152,7 +152,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 311607046}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.7
   m_Height: 4
   m_Direction: 1
@@ -212,11 +212,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4439534035228456, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.31
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 4439534035228456, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 18.49
+      value: 6.01
       objectReference: {fileID: 0}
     - target: {fileID: 4439534035228456, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
       propertyPath: m_LocalRotation.x
@@ -604,6 +604,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64938605347131728, guid: 5ce3bfd454b2c7e43a735e5a810875be,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
   m_IsPrefabAsset: 0
@@ -659,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9770645528cb8482eb041ec67cca3c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1177298346}
+  player: {fileID: 0}
   aiState: 0
 --- !u!114 &911507683
 MonoBehaviour:
@@ -690,6 +695,19 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 0}
+--- !u!136 &911507685
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911507679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &911507686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4439534035228456, guid: 5ce3bfd454b2c7e43a735e5a810875be,
@@ -861,12 +879,12 @@ Prefab:
     - target: {fileID: 136606663363984694, guid: 0e74cf81e6fd82546b4797f71ceffb81,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 136606663363984694, guid: 0e74cf81e6fd82546b4797f71ceffb81,
         type: 2}
       propertyPath: m_Height
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e74cf81e6fd82546b4797f71ceffb81, type: 2}
@@ -897,7 +915,7 @@ MeshCollider:
   m_GameObject: {fileID: 1895621858}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14

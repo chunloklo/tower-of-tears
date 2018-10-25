@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
 		if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0 && !nav.pathPending)
         {
-//			Debug.Log (playerHealth.currentHealth);
+			Debug.Log (playerHealth.currentHealth);
             nav.SetDestination (player.position);
         }
     }
