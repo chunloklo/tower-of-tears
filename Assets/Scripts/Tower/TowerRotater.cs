@@ -16,7 +16,6 @@ public class TowerRotater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Quaternion delta = Quaternion.Inverse(lastRotation) * transform.localRotation;
-        Debug.Log("Delta: " + (delta));
 
         lastRotation = transform.localRotation;
 
@@ -26,8 +25,24 @@ public class TowerRotater : MonoBehaviour {
         }
     }
 
+    private void LateUpdate()
+    {
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y ,0);
+        
+    }
+
     public void ConstrainMovement(Transform pos, Vector3 velocity)
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("hi");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
     }
 }
