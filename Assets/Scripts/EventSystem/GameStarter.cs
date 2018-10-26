@@ -7,6 +7,7 @@ public class GameStarter : MonoBehaviour {
 
     public void StartGame()
     {
-        SceneManager.LoadScene("demo");
+        Debug.Log("clicked start");
+        SceneManager.LoadScene("health");
     }
 }
