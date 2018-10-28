@@ -14,6 +14,7 @@ public class FollowCameraController : MonoBehaviour {
 
     private float camErrorThreshold = 1;
     private Vector3 lookAtPosition;
+    private Vector3 mouseOffset;
 
     // Use this for initialization
     void Start () {
@@ -21,6 +22,7 @@ public class FollowCameraController : MonoBehaviour {
         //offset = transform.position - player.transform.position;
         offset = new Vector3(0, 2, -5);
         lookAtPosition = player.transform.position;
+        mouseOffset = offset;
     }
 	
 	// Update is called once per frame
