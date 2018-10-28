@@ -19,7 +19,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private float m_currentV = 0;
     private float m_currentH = 0;
-
+    private bool run = false;
     private readonly float m_interpolation = 10;
     private readonly float m_walkScale = 0.33f;
     private readonly float m_backwardsWalkScale = 0.16f;
@@ -113,7 +113,15 @@ public class SimpleCharacterControl : MonoBehaviour {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
 
-        bool walk = Input.GetKey(KeyCode.LeftShift);
+        bool walk = Input.GetKey(KeyCode.LeftControl);
+
+        bool run = Input.GetKey(KeyCode.LeftShift);
+
+        if (run)
+        {
+            m_moveSpeed = m_moveSpeed * (float) 1.5;
+            m_turnSpeed = m_turnSpeed * (float) 1.3;
+        }
 
         if (v < 0) {
             if (walk) { v *= m_backwardsWalkScale; }
@@ -140,8 +148,20 @@ public class SimpleCharacterControl : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
 
         Transform camera = Camera.main.transform;
+        bool walk = Input.GetKey(KeyCode.LeftControl);
+        bool run = Input.GetKey(KeyCode.LeftShift);
+        if (run)
+        {
+            m_moveSpeed = 5;
+            m_turnSpeed = 250;
+        }
+        if (!run)
+        {
+            m_moveSpeed = 2;
+            m_turnSpeed = 200;
+        }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (walk)
         {
             v *= m_walkScale;
             h *= m_walkScale;
