@@ -333,6 +333,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 484046829}
+  moveTightness: 0.5
+  moveHitTightness: 10
+  lookTightness: 2
+  speedH: 5
+  speedV: 5
 --- !u!81 &1125836395
 AudioListener:
   m_ObjectHideFlags: 0
