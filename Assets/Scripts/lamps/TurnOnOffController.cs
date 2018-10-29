@@ -7,14 +7,11 @@ public class TurnOnOffController : MonoBehaviour {
     Light wallLight;
     private ParticleSystem.EmissionModule flame;
 
-    GameObject trap;
+    public GameObject[] traps;
     private void Awake()
     {
         wallLight = this.gameObject.transform.GetChild(0).GetComponent<Light>();
         flame = this.gameObject.transform.GetChild(1).GetComponent<ParticleSystem>().emission;
-
-
-        trap = GameObject.FindWithTag("Trap");
     }
 
     void OnTriggerEnter(Collider c) {
@@ -24,17 +21,21 @@ public class TurnOnOffController : MonoBehaviour {
             wallLight.enabled = true;
             flame.enabled = true;
 
-            trap.GetComponent<Animation>().Play("Anim_SawTrap01_Play");
+            for (int i = 0; i < traps.Length; i++)
+            {
+                print(traps[i]);
+                traps[i].GetComponent<TrapController>().TrapDisable();
+            }
         } 
     }
 
-    void OnTriggerExit(Collider c)
-    {   
-        print(c);
-        if (wallLight.enabled)
-        {
-            wallLight.enabled = false;
-            flame.enabled = false;
-        }
-    }
+    //void OnTriggerExit(Collider c)
+    //{   
+    //    print(c);
+    //    if (wallLight.enabled)
+    //    {
+    //        wallLight.enabled = false;
+    //        flame.enabled = false;
+    //    }
+    //}
 }
