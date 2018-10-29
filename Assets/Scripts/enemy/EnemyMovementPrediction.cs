@@ -63,11 +63,12 @@ public class EnemyMovementPrediction : MonoBehaviour {
 		}
 		float dist = (targetPos - agentPos).magnitude;
 			
-//		if (playerHealth.isDead) {	
-//			aiState = AIState.Idle;
-//		}
+		if (playerHealth.isDead) {	
+			aiState = AIState.Idle;
+		}
 
-		Debug.Log (playerHealth.currentHealth);
+//		Debug.Log (playerHealth.currentHealth);
+//		Debug.Log (aiState);
 
 		switch (aiState) {
 		case AIState.Idle:
@@ -79,9 +80,10 @@ public class EnemyMovementPrediction : MonoBehaviour {
 			break;
 		case AIState.MoveToPlayer:
 			if (dist > minRadius && player != null) {
+				navMeshAgent.Resume ();
 				moveToPlayer ();
 			} else {
-				Debug.Log ("STOP");
+//				Debug.Log ("STOP");
 				navMeshAgent.Stop ();
 
 			}
@@ -98,7 +100,9 @@ public class EnemyMovementPrediction : MonoBehaviour {
 		float dist = (targetPos - agentPos).magnitude;
 		float lookAheadT = Mathf.Clamp(dist / navMeshAgent.speed, 0f, 1.5f);
 		Vector3 futureTarget = targetPos + lookAheadT * velocityScript.velocity;
+//		Vector3 futureTarget = player.transform.position;
 		navMeshAgent.SetDestination (futureTarget);
+//		Debug.Log (futureTarget);
 	}
 
 }
