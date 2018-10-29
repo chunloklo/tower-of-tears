@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 //    AudioSource playerAudio;
     PlayerMovement playerMovement;
 //    PlayerShooting playerShooting;
-    bool isDead;
+    public bool isDead;
     bool damaged;
 
 
@@ -91,7 +91,7 @@ public class PlayerHealth : MonoBehaviour
 //        playerAudio.clip = deathClip;
 //        playerAudio.Play ();
 
-        playerMovement.enabled = false;
+//        playerMovement.enabled = false;
         //        playerShooting.enabled = false;
 
         Debug.Log("PLAYER HAS DIED");
