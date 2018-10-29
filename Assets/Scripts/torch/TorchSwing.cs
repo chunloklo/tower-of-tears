@@ -8,7 +8,6 @@ public class TorchSwing : MonoBehaviour {
 
 	void Start() {
 		anim = GetComponent<Animator> ();
-		anim.SetTrigger("TorchSpin");
 	}
 
 //	void OnTriggerEnter(Collider c) {

@@ -22,6 +22,11 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;
     bool damaged;
 
+    SkinnedMeshRenderer sk;
+    Color originalColor;
+
+    public float playerInvulTime = 1.0f;
+    public float playerInvulRemaining;
 
     void Awake ()
     {
@@ -30,25 +35,34 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent <PlayerMovement> ();
 //        playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
+
+        sk = gameObject.GetComponentsInChildren<SkinnedMeshRenderer>()[0];
+        originalColor = sk.material.color;
     }
 
 
     void Update ()
     {
-//        if(damaged)
-//        {
-//            damageImage.color = flashColour;
-//        }
-//        else
-//        {
-//            damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-//        }
-        damaged = false;
+        if (playerInvulRemaining > 0)
+        {
+            playerInvulRemaining -= Time.deltaTime;
+            sk.material.color = flashColour;
+        } else
+        {
+            sk.material.color = originalColor;//Color.Lerp(originalColor, sk.material.color, playerInvulRemaining);
+        }
     }
 
 
     public void TakeDamage (int amount)
     {
+
+        if (playerInvulRemaining > 0)
+        {
+            return;
+        }
+        EventManager.TriggerEvent<PlayerHurtEvent, Vector3>(gameObject.transform.position);
+
         damaged = true;
 
         currentHealth -= amount;
@@ -61,6 +75,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Death ();
         }
+
+        playerInvulRemaining = playerInvulTime;
     }
 
     public void ReceiveHealth(int amount)
@@ -91,7 +107,7 @@ public class PlayerHealth : MonoBehaviour
 //        playerAudio.clip = deathClip;
 //        playerAudio.Play ();
 
-        playerMovement.enabled = false;
+        //playerMovement.enabled = false;
         //        playerShooting.enabled = false;
 
         Debug.Log("PLAYER HAS DIED");

@@ -5,30 +5,17 @@ using UnityEngine;
 public class ResetPlayer : MonoBehaviour {
     
     public int fallDamage = 10;
-    public GameObject checkpoint1;
-
     GameObject player;
     PlayerHealth playerHealth;
     bool playerInRange;
 
-    Vector3 startingCoord;
-    Vector3 checkpoint_1_coord;
-    Vector3 currentCoord;
-    Quaternion startingRotation = new Quaternion(0,0,0,1);
-
+    CheckpointManager cm;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        startingCoord = player.transform.position;
         playerHealth = player.GetComponent<PlayerHealth>();
-        currentCoord = startingCoord;
-
-        checkpoint_1_coord = checkpoint1.transform.position;
-        checkpoint_1_coord.y += 0.7f;
-
-        Debug.Log("checkpoint_1_coord: " + checkpoint_1_coord);
-        Debug.Log("startingCoord: " + currentCoord);
+        cm = player.GetComponent<CheckpointManager>();
     }
 
 
@@ -38,7 +25,6 @@ public class ResetPlayer : MonoBehaviour {
         {
             playerInRange = true;
         }
-        Debug.Log("currentCoord: " + currentCoord);
     }
 
 
@@ -50,12 +36,6 @@ public class ResetPlayer : MonoBehaviour {
         }
     }
 
-    public void UpdateRespawn()
-    {
-        currentCoord = checkpoint_1_coord;
-    }
-
-
     void ResetPlayerPosition()
     {
         if (playerHealth.currentHealth > 0)
@@ -63,12 +43,7 @@ public class ResetPlayer : MonoBehaviour {
             playerHealth.TakeDamage(fallDamage);
         }
 
-        Debug.Log("Hello!!");
-        player.transform.position = currentCoord;
-        player.transform.rotation = startingRotation;
-
-
-
+        cm.ResetPosition();
         playerInRange = false;
     }
 }

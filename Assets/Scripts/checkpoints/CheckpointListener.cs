@@ -5,16 +5,14 @@ using UnityEngine;
 public class CheckpointListener : MonoBehaviour {
 
     public GameObject resetTrigger;
-    private ResetPlayer resetScript;
     public GameObject pointLight;
     public GameObject fire;
-    private CheckpointActivator ca;
+    private CheckpointManager cm;
     private bool firstTrig;
 
     // Use this for initialization
     void Start()
     {
-        resetScript = resetTrigger.GetComponent<ResetPlayer>();
         firstTrig = false;
     }
 
@@ -22,19 +20,17 @@ public class CheckpointListener : MonoBehaviour {
     {
         if (c.attachedRigidbody != null)
         {
-            ca = c.attachedRigidbody.gameObject.GetComponent<CheckpointActivator>();
-            if (ca != null)
+            cm = c.attachedRigidbody.gameObject.GetComponent<CheckpointManager>();
+            if (cm != null)
             {
                 if (!firstTrig)
                 {
                     Debug.Log(resetTrigger);
                     firstTrig = true;
                     Debug.Log("CHARACTER COLLIDED WITH CHECKPOINT");
-                    ca.ActivateCheckpoint();
+                    cm.UpdateCheckpoint(c.gameObject.transform.position, c.gameObject.transform.rotation);
                     pointLight.SetActive(true);
                     fire.SetActive(true);
-
-                    resetScript.UpdateRespawn();
                 }
             }
         }
