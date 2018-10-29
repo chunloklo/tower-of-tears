@@ -34,12 +34,8 @@ public class FollowCameraController : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
         //rotations based off mouse movement
-        if (Input.GetMouseButton(0))
-        {
-            yaw += speedH * Input.GetAxis("Mouse X");
-            pitch -= speedV * Input.GetAxis("Mouse Y");
-
-        }
+        yaw += speedH * Input.GetAxis("Mouse X");
+        pitch -= speedV * Input.GetAxis("Mouse Y");
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         Vector3 rotateOffset = Quaternion.Euler(pitch, yaw, 0) * offset;
@@ -47,7 +43,19 @@ public class FollowCameraController : MonoBehaviour {
 
         Vector3 target = player.transform.position + rotateOffset;
 
+
+        Vector3 rayCastOrigin = player.transform.position + new Vector3(0, offset.y, 0);
+
+        Vector3 relativePos = target - rayCastOrigin;
+        RaycastHit hit;
+        if (Physics.Raycast(rayCastOrigin, relativePos, out hit, relativePos.magnitude, 1))
+        {
+            Debug.Log("HIT");
+            target = hit.point - relativePos.normalized * 0.1f;
+        }
         transform.position = target;
+
+
 
 
         //float camError = Mathf.Pow(1.1f, Vector3.Magnitude(transform.position - target));

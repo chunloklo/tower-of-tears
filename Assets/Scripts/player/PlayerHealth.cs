@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 //    AudioSource playerAudio;
     PlayerMovement playerMovement;
 //    PlayerShooting playerShooting;
-    bool isDead;
+    public bool isDead;
     bool damaged;
 
     SkinnedMeshRenderer sk;

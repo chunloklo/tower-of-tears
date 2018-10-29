@@ -7,10 +7,13 @@ public class TowerRotater : MonoBehaviour {
     public Transform[] pieces;
     public float[] ratio;
     Quaternion lastRotation;
+
+    public bool playerNear;
 	// Use this for initialization
 	void Start () {
         Debug.Assert(pieces.Length == ratio.Length);
         lastRotation = transform.localRotation;
+        playerNear = false;
 	}
 	
 	// Update is called once per frame
@@ -38,11 +41,13 @@ public class TowerRotater : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hi");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+        if (other.tag == "Player")
+        {
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+        }
     }
 }
