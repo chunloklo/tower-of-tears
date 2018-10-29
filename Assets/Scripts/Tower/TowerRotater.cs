@@ -26,11 +26,12 @@ public class TowerRotater : MonoBehaviour {
         {
             pieces[i].transform.localRotation *= Quaternion.Slerp(Quaternion.identity, delta, ratio[i]); ;
         }
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
     }
 
     private void LateUpdate()
     {
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y ,0);
+        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y ,0);
         
     }
 
@@ -47,6 +48,7 @@ public class TowerRotater : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            Debug.Log("Stopping");
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         }
     }
