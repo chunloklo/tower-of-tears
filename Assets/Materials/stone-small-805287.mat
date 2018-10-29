@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: stone-small-805287
-  m_Shader: {fileID: 4800000, guid: f8871cb483b7a2b42888cea83d86da00, type: 3}
+  m_Shader: {fileID: 4800000, guid: 79a30e15c9778488cbfb5e06d01e1a35, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
