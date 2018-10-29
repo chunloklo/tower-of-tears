@@ -32,7 +32,7 @@ public class FollowCameraController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         //rotations based off mouse movement
         if (Input.GetMouseButton(0))
         {
@@ -43,41 +43,45 @@ public class FollowCameraController : MonoBehaviour {
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         Vector3 rotateOffset = Quaternion.Euler(pitch, yaw, 0) * offset;
+        transform.LookAt(player.transform.position);
 
-        Vector3 target = player.transform.TransformPoint(rotateOffset);
+        Vector3 target = player.transform.position + rotateOffset;
 
-        float camError = Mathf.Pow(1.1f, Vector3.Magnitude(transform.position - target));
-        Vector3 lerpTarget = Vector3.Lerp(transform.position, target, camError * moveTightness * Time.deltaTime);
-
-        Vector3 rayCastOrigin = player.transform.position + new Vector3(0, offset.y, 0);
-
-        Vector3 relativePos = lerpTarget - rayCastOrigin;
-        RaycastHit hit;
-        if (Physics.Raycast(rayCastOrigin, relativePos, out hit, relativePos.magnitude, 1))
-        {
-            Debug.Log("HIT");
-            target = hit.point;
-            lerpTarget = Vector3.Lerp(transform.position, target, moveHitTightness * Time.deltaTime);
-        }
-
-        transform.position = lerpTarget;
+        transform.position = target;
 
 
+        //float camError = Mathf.Pow(1.1f, Vector3.Magnitude(transform.position - target));
+        //Vector3 lerpTarget = Vector3.Lerp(transform.position, target, camError * moveTightness * Time.deltaTime);
+
+        //Vector3 rayCastOrigin = player.transform.position + new Vector3(0, offset.y, 0);
+
+        //Vector3 relativePos = lerpTarget - rayCastOrigin;
+        //RaycastHit hit;
+        //if (Physics.Raycast(rayCastOrigin, relativePos, out hit, relativePos.magnitude, 1))
+        //{
+        //    Debug.Log("HIT");
+        //    target = hit.point;
+        //    lerpTarget = Vector3.Lerp(transform.position, target, moveHitTightness * Time.deltaTime);
+        //}
 
         //transform.position = lerpTarget;
-        //if (camError > camErrorThreshold)
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, player.transform.TransformPoint(offset), 0.1f);
-        //}
-        //else
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, player.transform.TransformPoint(offset), 0.01f);
-        //}
 
-        float lookError = Mathf.Pow(1.1f, Vector3.Magnitude(player.transform.position - lookAtPosition));
-        Vector3 lookTarget = Vector3.Lerp(lookAtPosition, player.transform.position, lookError * lookTightness * Time.deltaTime);
-        lookAtPosition = lookTarget;
 
-        transform.LookAt(lookTarget);
+
+        ////transform.position = lerpTarget;
+        ////if (camError > camErrorThreshold)
+        ////{
+        ////    transform.position = Vector3.Lerp(transform.position, player.transform.TransformPoint(offset), 0.1f);
+        ////}
+        ////else
+        ////{
+        ////    transform.position = Vector3.Lerp(transform.position, player.transform.TransformPoint(offset), 0.01f);
+        ////}
+
+        //float lookError = Mathf.Pow(1.1f, Vector3.Magnitude(player.transform.position - lookAtPosition));
+        //Vector3 lookTarget = Vector3.Lerp(lookAtPosition, player.transform.position, lookError * lookTightness * Time.deltaTime);
+        //lookAtPosition = lookTarget;
+
+        //transform.LookAt(lookTarget);
     }
 }

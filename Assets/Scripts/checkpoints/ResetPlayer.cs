@@ -44,7 +44,6 @@ public class ResetPlayer : MonoBehaviour {
 
     void Update()
     {
-        player.transform.position = currentCoord;
         if (playerInRange)
         {
             ResetPlayerPosition();
