@@ -40,16 +40,29 @@ public class TowerRotater : MonoBehaviour {
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("working...?");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Entering");
     }
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("Stopping");
         if (other.tag == "Player")
         {
-            Debug.Log("Stopping");
+            //Debug.Log("Stopping");
             GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         }
+    }
+
+    public void StopRotation()
+    {
+        Debug.Log("moving out of range");
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
     }
 }
