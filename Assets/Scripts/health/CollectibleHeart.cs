@@ -6,7 +6,7 @@ public class CollectibleHeart : MonoBehaviour {
 
     public GameObject player;
     public GameObject heart;
-    public int heartHealthVal = 10;
+    public int heartHealthVal = 1;
     private HeartCollector hc;
     private PlayerHealth ph;
     private Animator anim;

@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 30;
+    public int startingHealth = 5;
     public int currentHealth;
     public Slider healthSlider;
     public Image damageImage;
 //    public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+
+    public Image[] hearts;
 
 
     Animator anim;
@@ -67,11 +69,14 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-//        healthSlider.value = currentHealth;
+        //        healthSlider.value = currentHealth;
 
-//        playerAudio.Play ();
+        //        playerAudio.Play ();
 
-        if(currentHealth <= 0 && !isDead)
+        updateUI(currentHealth);
+
+
+        if (currentHealth <= 0 && !isDead)
         {
             Death ();
         }
@@ -93,6 +98,8 @@ public class PlayerHealth : MonoBehaviour
         //        healthSlider.value = currentHealth;
 
         //        playerAudio.Play ();
+
+        updateUI(currentHealth);
     }
 
 
@@ -111,6 +118,22 @@ public class PlayerHealth : MonoBehaviour
         //        playerShooting.enabled = false;
 
         Debug.Log("PLAYER HAS DIED");
+    }
+    
+    void updateUI(int currHealth)
+    {
+        Debug.Log("IN UI");
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < currHealth)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
 
 

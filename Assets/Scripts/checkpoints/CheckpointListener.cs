@@ -5,8 +5,9 @@ using UnityEngine;
 public class CheckpointListener : MonoBehaviour {
 
     public GameObject resetTrigger;
-    public GameObject pointLight;
-    public GameObject fire;
+    public GameObject lampPost_1;
+    public Material lampActive;
+    public Material lampInactive;
     private CheckpointManager cm;
     private bool firstTrig;
 
@@ -14,6 +15,7 @@ public class CheckpointListener : MonoBehaviour {
     void Start()
     {
         firstTrig = false;
+        lampPost_1.GetComponent<MeshRenderer>().material = lampInactive;
     }
 
     public void OnTriggerEnter(Collider c)
@@ -29,8 +31,7 @@ public class CheckpointListener : MonoBehaviour {
                     firstTrig = true;
                     Debug.Log("CHARACTER COLLIDED WITH CHECKPOINT");
                     cm.UpdateCheckpoint(c.gameObject.transform.position, c.gameObject.transform.rotation);
-                    pointLight.SetActive(true);
-                    fire.SetActive(true);
+                    lampPost_1.GetComponent<MeshRenderer>().material = lampActive;
                 }
             }
         }

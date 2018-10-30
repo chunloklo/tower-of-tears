@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetPlayer : MonoBehaviour {
     
-    public int fallDamage = 10;
+    public int fallDamage = 1;
     GameObject player;
     PlayerHealth playerHealth;
     bool playerInRange;

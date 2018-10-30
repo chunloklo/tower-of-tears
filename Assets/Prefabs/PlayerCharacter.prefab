@@ -401,6 +401,10 @@ GameObject:
   - component: {fileID: 114014471297973848}
   - component: {fileID: 114256139992880972}
   - component: {fileID: 114984462123984052}
+  - component: {fileID: 136632764577692270}
+  - component: {fileID: 114725927813963756}
+  - component: {fileID: 114176640772076444}
+  - component: {fileID: 114100191271214614}
   m_Layer: 9
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -1277,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546515639126320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.54, y: 14.42, z: 3}
+  m_LocalPosition: {x: 4.49, y: 0.1, z: -5.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4781956276988156}
@@ -1523,12 +1527,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 1000
-  currentHealth: 1000
+  startingHealth: 5
+  currentHealth: 5
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   isDead: 0
   playerInvulTime: 1
   playerInvulRemaining: 0
@@ -1543,6 +1553,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a70a34bea924bf6afac47435aa35ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114100191271214614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546515639126320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca67a60dc4840ab4baca2e34fe509639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasHeart: 0
+--- !u!114 &114176640772076444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546515639126320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9c43b05eb52544693d3d7069c4fcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activatedCheckpoint_1: 0
+  checkpointPos: {x: 0, y: 0, z: 0}
 --- !u!114 &114256139992880972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1591,6 +1626,30 @@ MonoBehaviour:
   Fumee: {fileID: 1014766962030234}
   MaxLightIntensity: 1
   IntensityLight: 1
+--- !u!114 &114725927813963756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546515639126320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544f2064df03e95419b4a5147c506b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 30
+  currentHealth: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isDead: 0
+  playerInvulTime: 1
+  playerInvulRemaining: 0
 --- !u!114 &114984462123984052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1630,6 +1689,19 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: 0, y: 0.061413012, z: 0}
 --- !u!136 &136547741264322812
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546515639126320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!136 &136632764577692270
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
