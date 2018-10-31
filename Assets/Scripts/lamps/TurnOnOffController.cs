@@ -8,10 +8,13 @@ public class TurnOnOffController : MonoBehaviour {
     private ParticleSystem.EmissionModule flame;
 
     public GameObject[] traps;
+
+    private GameOverController gameOverController;
     private void Awake()
     {
         wallLight = this.gameObject.transform.GetChild(0).GetComponent<Light>();
         flame = this.gameObject.transform.GetChild(1).GetComponent<ParticleSystem>().emission;
+        gameOverController = GameObject.FindGameObjectWithTag("Player").GetComponent<GameOverController>();
     }
 
     void OnTriggerEnter(Collider c) {
@@ -20,8 +23,11 @@ public class TurnOnOffController : MonoBehaviour {
             wallLight.enabled = true;
             flame.enabled = true;
 
-            GameObject player = GameObject.FindGameObjectWithTag("MovingWaypointCube");
-            player.GetComponent<GameOverController>().AddLamp();
+            if (gameOverController != null)
+            {
+                gameOverController.GetComponent<GameOverController>().AddLamp();
+            }
+
 
             for (int i = 0; i < traps.Length; i++)
             {

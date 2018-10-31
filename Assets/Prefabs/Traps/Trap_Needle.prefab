@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef801687d1a599c43909ed0e48562154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallDamage: 10
+  fallDamage: 1
   pushBack: 5
 --- !u!114 &114661376441573912
 MonoBehaviour:

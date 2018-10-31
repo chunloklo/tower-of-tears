@@ -53,7 +53,7 @@ public class FollowCameraController : MonoBehaviour {
             Debug.Log("HIT");
             target = hit.point - relativePos.normalized * 0.1f;
         }
-        transform.position = target;
+        transform.position = Vector3.Lerp(gameObject.transform.position, target, 0.1f);
 
 
 

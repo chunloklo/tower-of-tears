@@ -7,6 +7,7 @@ public class RotateChild : MonoBehaviour {
 
     public TowerRotater parent;
     public Rigidbody parentRB;
+
 	// Use this for initialization
 	void Start () {
         parent = transform.parent.GetComponent<TowerRotater>();
