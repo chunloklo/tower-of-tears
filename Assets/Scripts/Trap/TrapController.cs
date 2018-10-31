@@ -22,5 +22,6 @@ public class TrapController : MonoBehaviour {
     public void TrapDisable()
     {
         gameObject.GetComponent<Animation>().Play();
+        EventManager.TriggerEvent<TrapDisableEvent, Vector3>(gameObject.transform.position);
     }
 }

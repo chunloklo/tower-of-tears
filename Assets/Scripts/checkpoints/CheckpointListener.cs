@@ -20,7 +20,7 @@ public class CheckpointListener : MonoBehaviour {
 
     public void OnTriggerEnter(Collider c)
     {
-        if (c.attachedRigidbody != null)
+        if (c.attachedRigidbody != null && c.tag == "Player")
         {
             cm = c.attachedRigidbody.gameObject.GetComponent<CheckpointManager>();
             if (cm != null)
@@ -32,6 +32,7 @@ public class CheckpointListener : MonoBehaviour {
                     Debug.Log("CHARACTER COLLIDED WITH CHECKPOINT");
                     cm.UpdateCheckpoint(c.gameObject.transform.position, c.gameObject.transform.rotation);
                     lampPost_1.GetComponent<MeshRenderer>().material = lampActive;
+                    EventManager.TriggerEvent<CheckpointActivateEvent, Vector3>(lampPost_1.transform.position);
                 }
             }
         }
