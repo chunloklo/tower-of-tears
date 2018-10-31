@@ -14,7 +14,7 @@ public class GameOverController : MonoBehaviour
     {
         lampCount++;
 
-        if (lampCount == 1) {
+        if (lampCount == 4) {
             CrossSceneInformation.GameOverTitle = "You won! ";
             CrossSceneInformation.GameOverSubtitle = "You are the new tower master now.";
             SceneManager.LoadScene("AlphaDemoBossGameOver");

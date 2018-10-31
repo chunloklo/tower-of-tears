@@ -22,6 +22,7 @@ public class TurnOnOffController : MonoBehaviour {
         if (!wallLight.enabled) {
             wallLight.enabled = true;
             flame.enabled = true;
+            EventManager.TriggerEvent<TorchLightEvent, Vector3>(gameObject.transform.position);
 
             if (gameOverController != null)
             {

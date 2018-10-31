@@ -111,11 +111,15 @@ public class PlayerHealth : MonoBehaviour
 
         anim.SetTrigger ("Die");
 
-//        playerAudio.clip = deathClip;
-//        playerAudio.Play ();
+        //        playerAudio.clip = deathClip;
+        //        playerAudio.Play ();
 
         //playerMovement.enabled = false;
         //        playerShooting.enabled = false;
+
+        CrossSceneInformation.GameOverTitle = "You lose! ";
+        CrossSceneInformation.GameOverSubtitle = "Try again to become the new tower master.";
+        SceneManager.LoadScene("AlphaDemoBossGameOver");
 
         Debug.Log("PLAYER HAS DIED");
     }
