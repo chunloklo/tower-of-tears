@@ -8,7 +8,7 @@ public class EnemyMovementPrediction : MonoBehaviour {
 	private UnityEngine.AI.NavMeshAgent navMeshAgent;
 	private Animator anim;	
 	private int attackRadius = 20;
-	private int minRadius = 2;
+	private float minRadius = 1.1f;
 	public GameObject player;
 	VelocityReporter velocityScript;
 	PlayerHealth playerHealth;
@@ -32,7 +32,7 @@ public class EnemyMovementPrediction : MonoBehaviour {
 		if (navMeshAgent == null)
 			Debug.Log("NavMeshAgent could not be found");
 
-		player = GameObject.FindGameObjectWithTag ("MovingWaypointCube");
+		player = GameObject.FindGameObjectWithTag ("Player");
 
 		velocityScript = player.GetComponent<VelocityReporter>();
 			
@@ -99,6 +99,7 @@ public class EnemyMovementPrediction : MonoBehaviour {
 		Vector3 targetPos = player.transform.position;
 		float dist = (targetPos - agentPos).magnitude;
 		float lookAheadT = Mathf.Clamp(dist / navMeshAgent.speed, 0f, 1.5f);
+        lookAheadT = 0f;
 		Vector3 futureTarget = targetPos + lookAheadT * velocityScript.velocity;
 //		Vector3 futureTarget = player.transform.position;
 		navMeshAgent.SetDestination (futureTarget);
