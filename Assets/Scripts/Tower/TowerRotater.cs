@@ -8,12 +8,15 @@ public class TowerRotater : MonoBehaviour {
     public float[] ratio;
     Quaternion lastRotation;
 
+    private Rigidbody rb;
+
     public bool playerNear;
 	// Use this for initialization
 	void Start () {
         Debug.Assert(pieces.Length == ratio.Length);
         lastRotation = transform.localRotation;
         playerNear = false;
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
@@ -26,43 +29,9 @@ public class TowerRotater : MonoBehaviour {
         {
             pieces[i].transform.localRotation *= Quaternion.Slerp(Quaternion.identity, delta, ratio[i]); ;
         }
-        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-    }
-
-    private void LateUpdate()
-    {
-        //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y ,0);
+        //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         
     }
 
-    public void ConstrainMovement(Transform pos, Vector3 velocity)
-    {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("working...?");
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Entering");
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Stopping");
-        if (other.tag == "Player")
-        {
-            //Debug.Log("Stopping");
-            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-        }
-    }
-
-    public void StopRotation()
-    {
-        Debug.Log("moving out of range");
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-    }
 }

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 136917649391841610}
   - component: {fileID: 54694036079720844}
   - component: {fileID: 59812189608450260}
+  - component: {fileID: 114706654446619382}
   m_Layer: 11
   m_Name: RotatePole1
   m_TagString: Untagged
@@ -133,7 +134,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 94
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!54 &54694036079720844
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316096924967396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1575df60c281ef4fa2617b4474dba72, type: 3}
   m_Name: 
@@ -209,9 +210,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieces: []
-  ratio:
-  - 1
+  ratio: []
   playerNear: 0
+--- !u!114 &114706654446619382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652670005505532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26752d9fb5eb5c84db4646a1b779cb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!136 &136772480840391310
 CapsuleCollider:
   m_ObjectHideFlags: 1
