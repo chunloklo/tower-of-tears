@@ -11,8 +11,11 @@ public class CollectibleHeart : MonoBehaviour {
     private PlayerHealth ph;
     private Animator anim;
 
+    private bool given;
+
     // Use this for initialization
     void Start () {
+        given = false;
         anim = GetComponent<Animator>();
         if (anim == null)
         {
@@ -23,11 +26,12 @@ public class CollectibleHeart : MonoBehaviour {
 
     public void OnTriggerEnter(Collider c)
     {
-        if (c.attachedRigidbody != null)
+        if (c.attachedRigidbody != null && c.tag == "Player")
         {
             hc = c.attachedRigidbody.gameObject.GetComponent<HeartCollector>();
-            if (hc != null)
+            if (hc != null && !given && ph.currentHealth < ph.startingHealth)
             {
+                given = true;
                 EventManager.TriggerEvent<BombBounceEvent, Vector3>(c.transform.position);
                 hc.ReceiveHeart();
                 Destroy(heart);

@@ -3495,20 +3495,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013886378248, guid: 8ab10192f01fc9b429044b1b3c367d66,
     type: 2}
   m_PrefabInternal: {fileID: 1524688016}
---- !u!114 &1009526286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1009526280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eefa98ac7919c9468ae05c73be52e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 183271317}
-  heart: {fileID: 1009526280}
-  heartHealthVal: 1
 --- !u!1001 &1020446099
 Prefab:
   m_ObjectHideFlags: 0
@@ -3783,20 +3769,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013886378248, guid: 8ab10192f01fc9b429044b1b3c367d66,
     type: 2}
   m_PrefabInternal: {fileID: 2092938570}
---- !u!114 &1089862203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1089862201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eefa98ac7919c9468ae05c73be52e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 183271317}
-  heart: {fileID: 1089862201}
-  heartHealthVal: 1
 --- !u!95 &1089862204
 Animator:
   serializedVersion: 3
@@ -4503,20 +4475,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013886378248, guid: 8ab10192f01fc9b429044b1b3c367d66,
     type: 2}
   m_PrefabInternal: {fileID: 580713711}
---- !u!114 &1232174464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1232174462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eefa98ac7919c9468ae05c73be52e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 183271317}
-  heart: {fileID: 1232174462}
-  heartHealthVal: 1
 --- !u!95 &1232174465
 Animator:
   serializedVersion: 3
