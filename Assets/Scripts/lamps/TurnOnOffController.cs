@@ -15,11 +15,13 @@ public class TurnOnOffController : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider c) {
-        print(c);
         // turn on point light and flame particles
         if (!wallLight.enabled) {
             wallLight.enabled = true;
             flame.enabled = true;
+
+            GameObject player = GameObject.FindGameObjectWithTag("MovingWaypointCube");
+            player.GetComponent<GameOverController>().AddLamp();
 
             for (int i = 0; i < traps.Length; i++)
             {

@@ -8,6 +8,6 @@ public class GameStarter : MonoBehaviour {
     public void StartGame()
     {
         Debug.Log("clicked start");
-        SceneManager.LoadScene("health");
+        SceneManager.LoadScene("AlphaDemoLevel");
     }
 }
