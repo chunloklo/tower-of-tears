@@ -29,13 +29,15 @@ public class EnemyAttack : MonoBehaviour
     bool isSpawnedOn = false;
     bool playerTookRanged = false;
 
+    public GameObject rangedAttackPrefab;
+
 
 	void Awake ()
 	{
         rangeBallOn = GameObject.FindGameObjectWithTag("RangeBallOn");
         rangeBallOff = GameObject.FindGameObjectWithTag("RangeBallOff");
-        rangeBallOff.SetActive(false);
-        rangeBallOn.SetActive(false);
+        //rangeBallOff.SetActive(false);
+        //rangeBallOn.SetActive(false);
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = player.GetComponent <PlayerHealth> ();
 		enemyHealth = GetComponent<EnemyHealth>();
@@ -77,16 +79,16 @@ public class EnemyAttack : MonoBehaviour
                 playerTookRanged = false;
             }
         }
-        if (isSpawnedOff)
-        {
-            activeTimer += Time.deltaTime;
-            BallExist();
-        }
-        if (isSpawnedOn)
-        {
-            activeTimer += Time.deltaTime;
-            DamageBallExist();
-        }
+        //if (isSpawnedOff)
+        //{
+        //    activeTimer += Time.deltaTime;
+        //    BallExist();
+        //}
+        //if (isSpawnedOn)
+        //{
+        //    activeTimer += Time.deltaTime;
+        //    DamageBallExist();
+        //}
 
 		if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
 		{
@@ -124,7 +126,9 @@ public class EnemyAttack : MonoBehaviour
             isSpawnedOff = true;
             playerPosition = player.transform.position;
             Debug.Log ("RANGE ATTACK");
-            anim.SetTrigger ("Attack");
+            anim.SetTrigger ("RangeAttack");
+
+            Instantiate(rangedAttackPrefab, new Vector3(playerPosition.x, 0, playerPosition.z), Quaternion.identity);
         }
     }
     

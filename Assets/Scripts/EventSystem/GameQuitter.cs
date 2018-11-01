@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameQuitter : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
 
     public void QuitGame()
     {

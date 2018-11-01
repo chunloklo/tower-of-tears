@@ -10,7 +10,12 @@ public class GameStarter : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("clicked start");
-        animator.SetTrigger("FadeOut");
+        if (animator != null)
+        {
+            animator.SetTrigger("FadeOut");
+        }
+
+        Time.timeScale = 1;
         StartCoroutine(waitThenTransition());
 
     }
@@ -19,6 +24,7 @@ public class GameStarter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.7F);
         SceneManager.LoadScene("AlphaDemoLevel");
+        Debug.Log("waitning for transition");
 
     }
 }

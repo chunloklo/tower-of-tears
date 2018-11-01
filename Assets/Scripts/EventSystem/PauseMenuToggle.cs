@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PauseMenuToggle : MonoBehaviour {
 
+
+    public FollowCameraController camController;
     private CanvasGroup canvasGroup;
         
 	void Awake () {
@@ -20,12 +22,20 @@ public class PauseMenuToggle : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+            
             if (canvasGroup.interactable)
             {
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.alpha = 0f;
                 Time.timeScale = 1f;
+                Cursor.visible = false;
+                if (camController != null)
+                {
+                    camController.disabled = false;
+                }
+
+
             }
             else
             {
@@ -33,6 +43,11 @@ public class PauseMenuToggle : MonoBehaviour {
                 canvasGroup.blocksRaycasts = true;
                 canvasGroup.alpha = 1f;
                 Time.timeScale = 0f;
+                Cursor.visible = true;
+                if (camController != null)
+                {
+                    camController.disabled = true;
+                }
             }
         }
     }

@@ -2629,6 +2629,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
   attackDamage: 1
+  timeBetweenRangeAttacks: 8
+  rangeAttackDamage: 2
+  rangedAttackPrefab: {fileID: 1977084633528446, guid: d45b13e4cc7654d4e8115b827832f8c7,
+    type: 2}
 --- !u!136 &136090276219921380
 CapsuleCollider:
   m_ObjectHideFlags: 1

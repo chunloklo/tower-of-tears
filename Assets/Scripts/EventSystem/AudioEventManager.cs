@@ -13,12 +13,14 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip checkpointActivateAudio;
     public AudioClip torchLightAudio;
     public AudioClip trapDisableAudio;
+    public AudioClip bossRangeAttackAudio;
 
     private UnityAction<Vector3> bombBounceEventListener;
     private UnityAction<Vector3> playerHurtEventListener;
     private UnityAction<Vector3> checkpointActivateEventListener;
     private UnityAction<Vector3> torchLightEventListener;
     private UnityAction<Vector3> trapDisableEventListener;
+    private UnityAction<Vector3> bossRangeAttackEventListener;
 
     void Awake()
     {
@@ -27,6 +29,7 @@ public class AudioEventManager : MonoBehaviour
         checkpointActivateEventListener = new UnityAction<Vector3>(checkpointActivateEventHandler);
         torchLightEventListener = new UnityAction<Vector3>(torchLightEventHandler);
         trapDisableEventListener = new UnityAction<Vector3>(trapDisableEventHandler);
+        bossRangeAttackEventListener = new UnityAction<Vector3>(bossRangeAttackEventHandler);
     }
 
 
@@ -47,6 +50,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<CheckpointActivateEvent, Vector3>(checkpointActivateEventListener);
         EventManager.StartListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StartListening<TorchLightEvent, Vector3>(trapDisableEventListener);
+        EventManager.StartListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
 
     }
 
@@ -57,6 +61,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<CheckpointActivateEvent, Vector3>(checkpointActivateEventListener);
         EventManager.StopListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StopListening<TorchLightEvent, Vector3>(trapDisableEventListener);
+        EventManager.StopListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
     }
 
     
@@ -146,4 +151,20 @@ public class AudioEventManager : MonoBehaviour
         }
     }
 
+    void bossRangeAttackEventHandler(Vector3 worldPos)
+    {
+        //AudioSource.PlayClipAtPoint(this.explosionAudio, worldPos, 1f);
+        if (eventSound3DPrefab)
+        {
+
+            EventSound3D snd = Instantiate(eventSound3DPrefab, worldPos, Quaternion.identity, null);
+
+            snd.audioSrc.clip = this.bossRangeAttackAudio;
+
+            snd.audioSrc.minDistance = 10f;
+            snd.audioSrc.maxDistance = 500f;
+
+            snd.audioSrc.Play();
+        }
+    }
 }

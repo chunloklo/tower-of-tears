@@ -22,6 +22,10 @@ public class FollowCameraController : MonoBehaviour {
     public float speedH = 5.0f;
     public float speedV = 5.0f;
 
+    public bool invert;
+
+    public bool disabled;
+
     // Use this for initialization
     void Start () {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
@@ -29,13 +33,27 @@ public class FollowCameraController : MonoBehaviour {
         offset = new Vector3(0, 2, -5);
         lookAtPosition = player.transform.position;
         mouseOffset = offset;
+        Cursor.visible = false;
+        disabled = false;
     }
 	
 	// Update is called once per frame
 	void LateUpdate () {
+        if (disabled)
+        {
+            return;
+        }
         //rotations based off mouse movement
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+        if (invert)
+        {
+            yaw -= speedH * Input.GetAxis("Mouse X");
+            pitch += speedV * Input.GetAxis("Mouse Y");
+        } else
+        {
+            yaw += speedH * Input.GetAxis("Mouse X");
+            pitch -= speedV * Input.GetAxis("Mouse Y");
+        }
+        
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         Vector3 rotateOffset = Quaternion.Euler(pitch, yaw, 0) * offset;
@@ -53,6 +71,7 @@ public class FollowCameraController : MonoBehaviour {
             Debug.Log("HIT");
             target = hit.point - relativePos.normalized * 0.1f;
         }
+
         transform.position = Vector3.Lerp(gameObject.transform.position, target, 0.1f);
 
 
