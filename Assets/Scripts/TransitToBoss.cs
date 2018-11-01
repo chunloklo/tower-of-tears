@@ -5,21 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class TransitToBoss : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Animator animator;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene("AlphaDemoBoss");
+            animator.SetTrigger("FadeOut");
+            StartCoroutine(waitThenTransition());
         }
+    }
+
+    IEnumerator waitThenTransition()
+    {
+        yield return new WaitForSeconds(0.7F);
+        SceneManager.LoadScene("AlphaDemoBoss");
+
     }
 }
