@@ -767,6 +767,16 @@ Prefab:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 1305821918}
+    - target: {fileID: 114014471297973848, guid: 1ab981bd7068755478beed335300e3a9,
+        type: 2}
+      propertyPath: startingHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014471297973848, guid: 1ab981bd7068755478beed335300e3a9,
+        type: 2}
+      propertyPath: currentHealth
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114725927813963756, guid: 1ab981bd7068755478beed335300e3a9, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1ab981bd7068755478beed335300e3a9, type: 2}

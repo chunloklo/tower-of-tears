@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public int rangeAttackDamage = 10;
 
     private float internalTimer = 2.0f;
-
+    private float damageCooldown = 2.0f;
     GameObject rangeBallOff;
     GameObject rangeBallOn;
 	Animator anim;
@@ -24,8 +24,10 @@ public class EnemyAttack : MonoBehaviour
 	float timer;
     float rangeTimer;
     float activeTimer;
+    float damageTimer;
     bool isSpawnedOff = false;
     bool isSpawnedOn = false;
+    bool playerTookRanged = false;
 
 
 	void Awake ()
@@ -65,6 +67,16 @@ public class EnemyAttack : MonoBehaviour
 	{
 		timer += Time.deltaTime;
         rangeTimer += Time.deltaTime;
+
+        if (playerTookRanged)
+        {
+            damageTimer += Time.deltaTime;
+            if (damageTimer > damageCooldown)
+            {
+                damageTimer = 0f;
+                playerTookRanged = false;
+            }
+        }
         if (isSpawnedOff)
         {
             activeTimer += Time.deltaTime;
@@ -119,7 +131,7 @@ public class EnemyAttack : MonoBehaviour
     void BallExist()
     {
         rangeBallOff.SetActive(true);
-        rangeBallOff.transform.position = playerPosition;
+        rangeBallOff.transform.position = new Vector3(playerPosition.x, playerPosition.y + 0.5f, playerPosition.z);
         BallOffPosition = rangeBallOff.transform.position;
         if (activeTimer > internalTimer)
         {
@@ -136,9 +148,19 @@ public class EnemyAttack : MonoBehaviour
     {
         rangeBallOn.SetActive(true);
         rangeBallOn.transform.position = BallOffPosition;
-        if (player.transform.position == rangeBallOn.transform.position)
-        {
-            playerHealth.TakeDamage(rangeAttackDamage);
+        if (!playerTookRanged) {
+            Collider[] hitCollider = Physics.OverlapSphere(rangeBallOn.transform.position, 0.5f);
+            int i = 0;
+            while (i < hitCollider.Length)
+            {
+                if(hitCollider[i] == player.GetComponent<Collider>())
+                {
+                    Debug.Log("TOOK DAMAGE");
+                    playerHealth.TakeDamage(rangeAttackDamage);
+                    playerTookRanged = true;
+                }
+                i++;
+            }
         }
         if (activeTimer > internalTimer)
         {
