@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33783191278178878}
   - component: {fileID: 23950217800415914}
   - component: {fileID: 136039983164479926}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33953832939857726}
   - component: {fileID: 23137139899371702}
   - component: {fileID: 136336264930106486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4672478008136628}
   - component: {fileID: 54436004045291392}
   - component: {fileID: 114169688946151204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BossRangeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
