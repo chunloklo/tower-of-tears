@@ -18,7 +18,7 @@ public class BossStarter : MonoBehaviour {
             camController.enabled = false;
         }
 
-        Time.timeScale = 0f;
+        StartCoroutine(waitThenTransition());
     }
 
     public void DisableCanvas()
@@ -32,5 +32,13 @@ public class BossStarter : MonoBehaviour {
         {
             camController.enabled = true;
         }
+    }
+
+    IEnumerator waitThenTransition()
+    {
+        yield return new WaitForSeconds(0.7F);
+        Time.timeScale = 0f;
+        Debug.Log("waitning for transition");
+
     }
 }

@@ -16,6 +16,15 @@ public class PauseMenuToggle : MonoBehaviour {
             Debug.LogError("Cannot find component");
         }
         canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0f;
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        if (camController != null)
+        {
+            camController.disabled = false;
+        }
     }
 	
 	// Update is called once per frame

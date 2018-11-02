@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameOverController : MonoBehaviour
 {
     int lampCount;
+    public Animator animator;
 
     void Awake() {
         lampCount = 0;
@@ -17,7 +18,16 @@ public class GameOverController : MonoBehaviour
         if (lampCount == 4) {
             CrossSceneInformation.GameOverTitle = "You won! ";
             CrossSceneInformation.GameOverSubtitle = "You are the new tower master now.";
-            SceneManager.LoadScene("AlphaDemoBossGameOver");
+
+            animator.SetTrigger("FadeOut");
+            StartCoroutine(waitThenTransition());
         }
+    }
+
+    IEnumerator waitThenTransition()
+    {
+        yield return new WaitForSeconds(0.7F);
+        SceneManager.LoadScene("AlphaDemoBossGameOver");
+
     }
 }
