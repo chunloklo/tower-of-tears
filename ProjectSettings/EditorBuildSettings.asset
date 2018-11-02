@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/startScene.unity
     guid: b16df4b623c03da459461788b0f53c2c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/health.unity
     guid: 6ac7c8191afe3e648a4cfed446afcb9c
   - enabled: 1
-    path: Assets/Scenes/AlphaDemoBossGameOver.unity
-    guid: 99ba2305cf0964eb49c6f16a0b2d3489
+    path: Assets/Scenes/AlphaDemoStartMenu.unity
+    guid: 5def2104622d54ab29b0d6b4c5845b0a
   - enabled: 1
     path: Assets/Scenes/AlphaDemoLevel.unity
     guid: e232c527fa02a7e4e83eba54c99fa228
   - enabled: 1
     path: Assets/Scenes/AlphaDemoBoss.unity
     guid: 564fbb448a4e84e7184c64d44d4149f3
+  - enabled: 1
+    path: Assets/Scenes/AlphaDemoBossGameOver.unity
+    guid: 99ba2305cf0964eb49c6f16a0b2d3489
   m_configObjects: {}
