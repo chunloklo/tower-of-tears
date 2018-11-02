@@ -16,6 +16,7 @@ public class GameStarter : MonoBehaviour
         }
 
         Time.timeScale = 1;
+        Debug.Log("hello");
         StartCoroutine(waitThenTransition());
 
     }
