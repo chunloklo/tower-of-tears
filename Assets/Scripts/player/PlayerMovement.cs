@@ -1,107 +1,90 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 6f;
-    public float turnSpeed = 5f;
 
-    private bool m_isGrounded;
-    private bool m_wasGrounded = false;
-    private List<Collider> m_collisions = new List<Collider>();
+    public Rigidbody rb;
+    public Animator anim;
 
+    public Vector2 prevInput;
+    private float lerpFactor = 0.9f;
 
-    Vector3 movement;
-	Animator anim;
-	Rigidbody playerRigidbody;
-	int floorMask;
-	float camRayLength = 100f;
-
-	void Awake() 
-	{
-		floorMask = LayerMask.GetMask ("Floor");
-		anim = GetComponent<Animator> ();
-		playerRigidbody = GetComponent<Rigidbody> ();
-	}
-
-	void Update()
-	{
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
-
-
-        //Move (v);
-        //Turning (h);
-		Animating (h, v);
-        JumpingAndLanding();
-
-    }
-
-	void Move (float v)
-	{
-		playerRigidbody.MovePosition (transform.position + transform.forward * v * speed * Time.deltaTime);	
-	}
-
-	void Turning(float h)
-	{
-        Quaternion rotation = Quaternion.AngleAxis(h * turnSpeed, gameObject.transform.up);
-        playerRigidbody.MoveRotation(playerRigidbody.rotation * rotation);
-        //Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-
-        //RaycastHit floorHit;
-
-        //if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask)) 
-        //{
-        //	Vector3 playerToMouse = floorHit.point - transform.position;
-        //	playerToMouse.y = 0f;
-
-        //	Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
-        //	playerRigidbody.MoveRotation (newRotation);
-        //}
-    }
-
-	void Animating(float h, float v)
-	{
-        anim.SetFloat("MoveSpeed", v);
-        anim.SetBool("Grounded", m_isGrounded);
-        //bool walking = h != 0f || v != 0f;
-        //anim.SetBool ("IsWalking", walking);
-    }
-
-    private void JumpingAndLanding()
+    private void Start()
     {
-
-        if (m_isGrounded && Input.GetKey(KeyCode.Space))
-        {
-            playerRigidbody.AddForce(Vector3.up * 4, ForceMode.Impulse);
-        }
-
-        if (!m_wasGrounded && m_isGrounded)
-        {
-            anim.SetTrigger("Land");
-        }
-
-        if (!m_isGrounded && m_wasGrounded)
-        {
-            anim.SetTrigger("Jump");
-        }
-
-        m_wasGrounded = m_isGrounded;
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        prevInput = GetInputVector();
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        ContactPoint[] contactPoints = collision.contacts;
-        for (int i = 0; i < contactPoints.Length; i++)
+    void Update()
+	{
+        Vector2 inputVec = GetInputVector();
+
+        inputVec = Vector2.Lerp(prevInput, inputVec, 0.8f);
+
+        if (inputVec.magnitude > 0)
         {
-            if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
-            {
-                if (!m_collisions.Contains(collision.collider))
-                {
-                    m_collisions.Add(collision.collider);
-                }
-                m_isGrounded = true;
-            }
+            Vector3 forwardTarget = RotationUpdate(inputVec);
+            MovementUpdate(inputVec, forwardTarget);
         }
+        
+        if (inputVec.magnitude < .1)
+        {
+            anim.SetBool("forward", false);
+        }
+
+        prevInput = inputVec;
+
+    }
+
+    Vector2 GetInputVector()
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        Vector2 inputVec = new Vector2(h, v);
+        if (inputVec.magnitude > .5)
+        {
+            inputVec = inputVec.normalized * 0.5f;
+        }
+
+        return inputVec;
+    }
+
+    Vector3 RotationUpdate(Vector2 inputVec)
+    {
+        Transform camera = Camera.main.transform;
+        float angle = Mathf.Atan2(inputVec.x, inputVec.y);
+
+        Vector3 camForward = camera.transform.forward;
+        camForward.y = 0;
+
+        Debug.Log(angle);
+        Vector3 targetVector = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.up) * camForward;
+
+        gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward, targetVector, 0.5f);
+        return targetVector.normalized;
+
+    }
+
+    void MovementUpdate(Vector2 inputVec, Vector3 targetForward)
+    {
+        float forwardAngle = Mathf.Atan2(gameObject.transform.forward.z, gameObject.transform.forward.x);
+        float targetAngle = Mathf.Atan2(targetForward.z, targetForward.x);
+        float epsilon = .1f;
+        if (Mathf.Abs(forwardAngle - targetAngle) < epsilon)
+        {
+            float moveSpeed = speed * inputVec.magnitude;
+            rb.MovePosition(rb.position + targetForward * moveSpeed * Time.deltaTime);
+            anim.SetBool("forward", true);
+
+            anim.SetFloat("speed", moveSpeed / speed * 0.8f);
+        } 
     }
 }
