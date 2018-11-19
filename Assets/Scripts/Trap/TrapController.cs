@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class TrapController : MonoBehaviour {
 
+    Animator anim;
 	// Use this for initialization
 	void Start () {
-		
+        anim = GetComponent<Animator>();	
 	}
 	
 	// Update is called once per frame
@@ -16,12 +18,11 @@ public class TrapController : MonoBehaviour {
 
     public void TrapEnable()
     {
-        
+        anim.SetBool("Active", true);
     }
 
     public void TrapDisable()
     {
-        gameObject.GetComponent<Animation>().Play();
-        EventManager.TriggerEvent<TrapDisableEvent, Vector3>(gameObject.transform.position);
+        anim.SetBool("Active", false);
     }
 }
