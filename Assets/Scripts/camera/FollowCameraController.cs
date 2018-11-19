@@ -44,15 +44,20 @@ public class FollowCameraController : MonoBehaviour {
             return;
         }
         //rotations based off mouse movement
-        if (invert)
+        if (Input.GetMouseButton(1))
         {
-            yaw -= speedH * Input.GetAxis("Mouse X");
-            pitch += speedV * Input.GetAxis("Mouse Y");
-        } else
-        {
-            yaw += speedH * Input.GetAxis("Mouse X");
-            pitch -= speedV * Input.GetAxis("Mouse Y");
+            if (invert)
+            {
+                yaw -= speedH * Input.GetAxis("Mouse X");
+                pitch += speedV * Input.GetAxis("Mouse Y");
+            }
+            else
+            {
+                yaw += speedH * Input.GetAxis("Mouse X");
+                pitch -= speedV * Input.GetAxis("Mouse Y");
+            }
         }
+        
         
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
