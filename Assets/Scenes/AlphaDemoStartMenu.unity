@@ -2335,7 +2335,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 782fc4aa1885c4e1b99dc452030f0ce6, type: 3}
     m_FontSize: 85
-    m_FontStyle: 1
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 260
@@ -3239,6 +3239,10 @@ Prefab:
     - target: {fileID: 1508748643913082, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
       propertyPath: m_Name
       value: fallen_guardian
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035039723693490, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce3bfd454b2c7e43a735e5a810875be, type: 2}
