@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraSwitch : MonoBehaviour {
+public class CameraSwitch_Intro : MonoBehaviour {
 
     public GameObject cameraOne;
     public GameObject cameraTwo;
