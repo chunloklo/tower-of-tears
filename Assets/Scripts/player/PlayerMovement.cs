@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 
+[RequireComponent(typeof(GroundCheck))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
@@ -17,10 +18,18 @@ public class PlayerMovement : MonoBehaviour
     private float speedLerp = 10f;
     private float rotationLerp = 20f;
 
+    public float jumpForce;
+
+    private List<Collider> groundColliders = new List<Collider>();
+    private bool isGrounded;
+
+    public GroundCheck groundCheck;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        groundCheck = GetComponent<GroundCheck>();
         prevInput = GetInputVector();
         prevSpeed = 0;
 
@@ -43,9 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         MovementUpdate(inputVec, targetVector);
-
         JumpUpdate();
-
         prevInput = inputVec;
 
     }
@@ -83,16 +90,6 @@ public class PlayerMovement : MonoBehaviour
 
     void MovementUpdate(Vector2 inputVec, Vector3 targetVector)
     {
-
-        //Debug.Log(string.Format("Prev speed: {0} Target Speed {1} Actual Speed {2}", prevSpeed, speed * inputVec.magnitude, moveSpeed));
-
-        //float epsilon = 45f;
-        //Debug.Log("Angle: " + angleError);
-        //if (angleError > epsilon)
-        //{
-        //    return;
-        //}
-
         float moveSpeed = Mathf.Lerp(prevSpeed, speed * inputVec.magnitude, speedLerp * Time.deltaTime);
 
         prevSpeed = moveSpeed;
@@ -104,10 +101,28 @@ public class PlayerMovement : MonoBehaviour
 
     void JumpUpdate()
     {
-        if (Input.GetButtonDown("Jump"))
+        anim.SetBool("isGrounded", groundCheck.IsGrounded());
+        if (Input.GetButtonDown("Jump") && groundCheck.IsGrounded())
         {
-            //rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             anim.SetTrigger("jump");
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ContactPoint[] contactPoints = collision.contacts;
+        for (int i = 0; i < contactPoints.Length; i++)
+        {
+            if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
+            {
+                if (!groundColliders.Contains(collision.collider))
+                {
+                    groundColliders.Add(collision.collider);
+                }
+                isGrounded = true;
+            }
+        }
+    }
+
 }
