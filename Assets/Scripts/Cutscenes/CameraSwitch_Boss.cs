@@ -18,7 +18,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
     CinemachineVirtualCamera c1;
     CinemachineVirtualCamera c2;
     CinemachineVirtualCamera c3;
-    CinemachineVirtualCamera c4;
 
     int activeCam;
 
@@ -28,7 +27,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
         c1 = cameraOne.GetComponent<CinemachineVirtualCamera>();
         c2 = cameraTwo.GetComponent<CinemachineVirtualCamera>();
         c3 = cameraThree.GetComponent<CinemachineVirtualCamera>();
-        c4 = cameraFour.GetComponent<CinemachineVirtualCamera>();
 
         //Start at cam 1
         cameraPositionChange(1);
@@ -37,7 +35,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
 
         switchedToTwo = false;
         switchedToThree = false;
-        switchedToFour = true;
     }
     
     void Update()
@@ -55,10 +52,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
         {
             changeToCam3();
         }
-        if (ct.GetTime() > 60 && !switchedToFour)
-        {
-            changeToCam4();
-        }
     }
     
     void changeToCam2()
@@ -71,11 +64,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
     {
         switchedToThree = true;
         cameraPositionChange(3);
-    }
-    void changeToCam4()
-    {
-        switchedToFour = true;
-        cameraPositionChange(4);
     }
 
     void cameraPositionChange(int camPosition)
@@ -90,9 +78,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
 
             c3.enabled = false;
             cameraThree.SetActive(false);
-
-            c4.enabled = false;
-            cameraFour.SetActive(false);
         }
         
         if (camPosition == 2)
@@ -105,9 +90,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
 
             c3.enabled = false;
             cameraThree.SetActive(false);
-
-            c4.enabled = false;
-            cameraFour.SetActive(false);
         }
 
         if (camPosition == 3)
@@ -120,24 +102,6 @@ public class CameraSwitch_Boss : MonoBehaviour {
 
             c2.enabled = false;
             cameraTwo.SetActive(false);
-
-            c4.enabled = false;
-            cameraFour.SetActive(false);
-        }
-
-        if (camPosition == 4)
-        {
-            cameraFour.SetActive(true);
-            c4.enabled = true;
-
-            c1.enabled = false;
-            cameraOne.SetActive(false);
-
-            c2.enabled = false;
-            cameraTwo.SetActive(false);
-
-            c3.enabled = false;
-            cameraThree.SetActive(false);
         }
     }
 }
