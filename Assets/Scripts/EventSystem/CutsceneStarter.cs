@@ -3,23 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStarter : MonoBehaviour
+public class CutsceneStarter : MonoBehaviour
 {
     public Animator animator;
-    public CutsceneTimer ct;
-
-    public void Start()
-    {
-        ct = ct.GetComponent<CutsceneTimer>();
-    }
-
-    public void Update()
-    {
-        if (ct.GetTime() > 78)
-        {
-            StartGame();
-        }
-    }
 
     public void StartGame()
     {
@@ -38,7 +24,7 @@ public class GameStarter : MonoBehaviour
     IEnumerator waitThenTransition()
     {
         yield return new WaitForSeconds(0.7F);
-        SceneManager.LoadScene("AlphaDemoLevel");
+        SceneManager.LoadScene("AlphaIntroCutscene");
         Debug.Log("waitning for transition");
 
     }
