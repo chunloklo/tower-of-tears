@@ -16,8 +16,10 @@ public class GameOverController : MonoBehaviour
         lampCount++;
 
         if (lampCount == 4) {
+            /*
             CrossSceneInformation.GameOverTitle = "You won! ";
             CrossSceneInformation.GameOverSubtitle = "You are the new tower master now.";
+            */
 
             animator.SetTrigger("FadeOut");
             StartCoroutine(waitThenTransition());
@@ -27,7 +29,7 @@ public class GameOverController : MonoBehaviour
     IEnumerator waitThenTransition()
     {
         yield return new WaitForSeconds(0.7F);
-        SceneManager.LoadScene("AlphaDemoBossGameOver");
+        SceneManager.LoadScene("AlphaBossDeathCutscene");
 
     }
 }
