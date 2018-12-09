@@ -15,8 +15,6 @@ public class CutsceneMusic : MonoBehaviour {
         played = false;
         ct = ct.GetComponent<CutsceneTimer>();
         audioSource = GetComponent<AudioSource>();
-        Debug.Log("working");
-        //audioSource.Play(0);
     }
 	
 	// Update is called once per frame
