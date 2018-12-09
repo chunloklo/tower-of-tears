@@ -78,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 camForward = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z).normalized;
 
-        Debug.Log(angle);
         Vector3 targetVector = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.up) * camForward;
         float angleBetween = Vector3.Angle(targetVector, gameObject.transform.forward);
 
