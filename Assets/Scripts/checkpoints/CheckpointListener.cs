@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CheckpointListener : MonoBehaviour {
 
-    public GameObject resetTrigger;
     public GameObject lampPost_1;
     public Material lampActive;
     public Material lampInactive;
@@ -27,7 +26,6 @@ public class CheckpointListener : MonoBehaviour {
             {
                 if (!firstTrig)
                 {
-                    Debug.Log(resetTrigger);
                     firstTrig = true;
                     Debug.Log("CHARACTER COLLIDED WITH CHECKPOINT");
                     cm.UpdateCheckpoint(c.gameObject.transform.position, c.gameObject.transform.rotation);
