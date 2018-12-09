@@ -18,11 +18,11 @@ public class TrapController : MonoBehaviour {
 
     public void TrapEnable()
     {
-        anim.SetBool("Active", true);
+        anim.SetBool("active", true);
     }
 
     public void TrapDisable()
     {
-        anim.SetBool("Active", false);
+        anim.SetBool("active", false);
     }
 }

@@ -10,6 +10,15 @@ public class TurnOnOffController : MonoBehaviour {
     public GameObject[] traps;
 
     private GameOverController gameOverController;
+
+    private void Start()
+    {
+        for (int i = 0; i < traps.Length; i++)
+        {
+            traps[i].GetComponent<Animator>().SetBool("active", true);
+        }
+    }
+
     private void Awake()
     {
         wallLight = this.gameObject.transform.GetChild(0).GetComponent<Light>();
@@ -33,7 +42,7 @@ public class TurnOnOffController : MonoBehaviour {
             for (int i = 0; i < traps.Length; i++)
             {
                 print(traps[i]);
-                traps[i].GetComponent<TrapController>().TrapDisable();
+                traps[i].GetComponent<Animator>().SetBool("active", false);
             }
         } 
     }

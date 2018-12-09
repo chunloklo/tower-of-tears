@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4642099302027548}
   - component: {fileID: 111310379185550318}
   - component: {fileID: 114661376441573912}
+  - component: {fileID: 95046939778520480}
   m_Layer: 0
   m_Name: Trap_Needle
   m_TagString: Untagged
@@ -102,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 1786456780828456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.24581064, y: 0.50846946, z: -0.25513643}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children:
   - {fileID: 4920174862814148}
   - {fileID: 4771015597438394}
@@ -130,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887828772526002}
   m_LocalRotation: {x: 1.7112914e-15, y: 1, z: -0.000000021855694, w: 0.0000000754979}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642099302027548}
@@ -274,6 +275,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95046939778520480
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1786456780828456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e4fef7d69d62f046ae89886d4eab62c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!111 &111310379185550318
 Animation:
   m_ObjectHideFlags: 1
@@ -285,6 +304,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 2badb873ba409044db8e5b1246871dd2, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 2badb873ba409044db8e5b1246871dd2, type: 2}
+  - {fileID: 7400000, guid: 82276ad1fa0134f4d916ecaa765f6322, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

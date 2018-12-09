@@ -15,6 +15,7 @@ public class CollectibleHeart : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
         given = false;
         anim = GetComponent<Animator>();
         if (anim == null)
@@ -26,9 +27,10 @@ public class CollectibleHeart : MonoBehaviour {
 
     public void OnTriggerEnter(Collider c)
     {
-        if (c.attachedRigidbody != null && c.tag == "Player")
+        if (c.gameObject.layer == LayerMask.NameToLayer("player"))
         {
-            hc = c.attachedRigidbody.gameObject.GetComponent<HeartCollector>();
+            hc = c.gameObject.GetComponent<HeartCollector>();
+            Debug.Log("Player collided with heart");
             if (hc != null && !given && ph.currentHealth < ph.startingHealth)
             {
                 given = true;

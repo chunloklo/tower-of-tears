@@ -5,11 +5,11 @@ using UnityEngine;
 public class HurtBoxController : MonoBehaviour {
 
     PlayerHealth playerHealth;
-    public int fallDamage = 10;
-    public float pushBack = 2;
+    public int fallDamage = 1;
+    public float pushBack = 1000;
 
-    GameObject player;
-    Rigidbody playerRB;
+    public GameObject player;
+    public Rigidbody playerRB;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +20,8 @@ public class HurtBoxController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //playerRB.velocity = new Vector3(1, 0, 0);
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -36,6 +36,9 @@ public class HurtBoxController : MonoBehaviour {
         {
             playerHealth.TakeDamage(fallDamage);
             Vector3 offset = player.transform.position - gameObject.transform.position;
+            offset.y = .1f;
+            //offset = Vector3.RotateTowards(offset.normalized, new Vector3(0, 1, 0), Mathf.PI / 18, 0.0f);
+            Debug.Log(offset.normalized * pushBack);
             playerRB.velocity = offset.normalized * pushBack;
         } else
         {
