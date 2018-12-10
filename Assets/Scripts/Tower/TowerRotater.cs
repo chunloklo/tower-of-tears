@@ -7,6 +7,7 @@ public class TowerRotater : MonoBehaviour {
     public Transform[] pieces;
     public float[] ratio;
     Quaternion lastRotation;
+    public bool playerContact;
 
     private Rigidbody rb;
 
@@ -32,6 +33,32 @@ public class TowerRotater : MonoBehaviour {
         //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         //GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Player entered");
+        if (other.tag == "Player")
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionX |
+                                RigidbodyConstraints.FreezePositionY |
+                                RigidbodyConstraints.FreezePositionZ |
+                                RigidbodyConstraints.FreezeRotationX |
+                                RigidbodyConstraints.FreezeRotationZ;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionX |
+                                RigidbodyConstraints.FreezePositionY |
+                                RigidbodyConstraints.FreezePositionZ |
+                                RigidbodyConstraints.FreezeRotationX |
+                                RigidbodyConstraints.FreezeRotationY |
+                                RigidbodyConstraints.FreezeRotationZ;
+        }
     }
 
 }

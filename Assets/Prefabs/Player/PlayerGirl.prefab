@@ -905,7 +905,6 @@ GameObject:
   - component: {fileID: 136683239415180498}
   - component: {fileID: 114144396576871820}
   - component: {fileID: 114671452619463802}
-  - component: {fileID: 114042913935123528}
   - component: {fileID: 114039957891286480}
   - component: {fileID: 114310120903772082}
   m_Layer: 10
@@ -1881,18 +1880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activatedCheckpoint_1: 0
   checkpointPos: {x: 0, y: 0, z: 0}
---- !u!114 &114042913935123528
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1948110335655896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca67a60dc4840ab4baca2e34fe509639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasHeart: 0
 --- !u!114 &114128774179414912
 MonoBehaviour:
   m_ObjectHideFlags: 1

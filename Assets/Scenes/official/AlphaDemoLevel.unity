@@ -1019,13 +1019,7 @@ Prefab:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 27154995}
-    - target: {fileID: 54489484966891926, guid: 2458e552610bb2e45b877e3044e0cbd3,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114042913935123528, guid: 2458e552610bb2e45b877e3044e0cbd3, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2458e552610bb2e45b877e3044e0cbd3, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &408301050
