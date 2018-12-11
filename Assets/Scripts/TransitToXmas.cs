@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStarter : MonoBehaviour
+public class TransitToXmas : MonoBehaviour
 {
     public Animator animator;
-    public CutsceneTimer ct;
+    //public CutsceneTimer ct;
 
     public void Start()
     {
-        ct = ct.GetComponent<CutsceneTimer>();
+        //ct = ct.GetComponent<CutsceneTimer>();
     }
 
     public void Update()
     {
-        if (ct != null && ct.GetTime() > 78)
+        /*if (ct != null && ct.GetTime() > 78)
         {
             StartGame();
-        }
+        }*/
     }
 
     public void StartGame()
     {
-        Debug.Log("clicked start");
+        Debug.Log("clicked xmas");
         if (animator != null)
         {
             animator.SetTrigger("FadeOut");
         }
 
         Time.timeScale = 1;
-        Debug.Log("hello");
         StartCoroutine(waitThenTransition());
 
     }
@@ -38,8 +37,8 @@ public class GameStarter : MonoBehaviour
     IEnumerator waitThenTransition()
     {
         yield return new WaitForSeconds(0.7F);
-        SceneManager.LoadScene("AlphaDemoLevel");
-        Debug.Log("waitning for transition");
+        SceneManager.LoadScene("SnowLevel");
+        Debug.Log("waiting for transition");
 
     }
 }
