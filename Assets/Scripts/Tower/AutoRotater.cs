@@ -23,7 +23,7 @@ public class AutoRotater : MonoBehaviour {
         if (rc != null && !rc.playerContact)
         {
             Debug.Log("Rotating");
-            //rb.angularVelocity = new Vector3(0, speed, 0);
+            rb.angularVelocity = new Vector3(0, speed, 0);
             //Quaternion rotation = Quaternion.Euler(0, speed * 180 / Mathf.PI * Time.deltaTime, 0);
             //rb.transform.localRotation *= rotation;
         }
