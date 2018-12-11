@@ -7,7 +7,6 @@ public class CollectibleHeart : MonoBehaviour {
     public GameObject player;
     public GameObject heart;
     public int heartHealthVal = 1;
-    private HeartCollector hc;
     private PlayerHealth ph;
     private Animator anim;
 
@@ -25,17 +24,17 @@ public class CollectibleHeart : MonoBehaviour {
         ph = player.GetComponent<PlayerHealth>();
     }
 
+
+
     public void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.layer == LayerMask.NameToLayer("player"))
+        if (c.gameObject.tag == "Player")
         {
-            hc = c.gameObject.GetComponent<HeartCollector>();
             Debug.Log("Player collided with heart");
-            if (hc != null && !given && ph.currentHealth < ph.startingHealth)
+            if (!given && ph.currentHealth < ph.startingHealth)
             {
                 given = true;
                 EventManager.TriggerEvent<BombBounceEvent, Vector3>(c.transform.position);
-                hc.ReceiveHeart();
                 Destroy(heart);
                 Destroy(this.gameObject);
                 ph.ReceiveHealth(heartHealthVal);

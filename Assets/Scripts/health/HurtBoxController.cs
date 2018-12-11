@@ -39,7 +39,7 @@ public class HurtBoxController : MonoBehaviour {
             offset.y = .1f;
             //offset = Vector3.RotateTowards(offset.normalized, new Vector3(0, 1, 0), Mathf.PI / 18, 0.0f);
             Debug.Log(offset.normalized * pushBack);
-            playerRB.velocity = offset.normalized * pushBack;
+            playerRB.AddExplosionForce(pushBack, gameObject.transform.position, 10f, 1f, ForceMode.Impulse);
         } else
         {
             player.GetComponent<CheckpointManager>().ResetPosition();

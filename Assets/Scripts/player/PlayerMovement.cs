@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.AddForce(Physics.gravity * rb.mass * 2);
+        rb.angularVelocity = new Vector3(0, 0, 0);
     }
 
     void Update()

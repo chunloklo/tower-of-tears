@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2376580}
   - component: {fileID: 20550312}
   - component: {fileID: 6507714}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: lamppostSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 23556402636680752}
   - component: {fileID: 65838176144097140}
   - component: {fileID: 114812321131228934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fd8652af3bff145ae3be4ee018b6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTrigger: {fileID: 0}
   lampPost_1: {fileID: 175266}
   lampActive: {fileID: 2100000, guid: 0e10af4361a164748808549e7ab81f0a, type: 2}
   lampInactive: {fileID: 2100000, guid: ca787a5f5da6a8f42a9f7f6b1f564afd, type: 2}
