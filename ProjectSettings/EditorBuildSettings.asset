@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/official/SnowLevel.unity
     guid: 8383f0a21007b40909ce5ad3a3172554
+  - enabled: 1
+    path: Assets/Scenes/official/SnowLevelIntroCutscene.unity
+    guid: 9f36cf32d26e19742a49c4eaee400ed0
   m_configObjects: {}
