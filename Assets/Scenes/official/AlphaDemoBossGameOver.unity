@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.47702497, g: 0.49205875, b: 0.53076476, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -217,7 +217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play Again
+  m_Text: Main Menu
 --- !u!222 &102072826
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,10 +842,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 707054273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000bf87f9d705b0478a7a25d03e22ad2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ed53ff9f7293ba45a24986bcf155f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1124066108}
   ct: {fileID: 0}
 --- !u!1001 &776388818
 Prefab:
@@ -981,6 +981,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1124066108 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95857386675688686, guid: a68c4997c5c8f4cbfb977189d3b46493,
+    type: 2}
+  m_PrefabInternal: {fileID: 2011626304}
 --- !u!1001 &1193570211
 Prefab:
   m_ObjectHideFlags: 0

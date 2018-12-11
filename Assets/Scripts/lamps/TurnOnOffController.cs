@@ -23,7 +23,7 @@ public class TurnOnOffController : MonoBehaviour {
     {
         wallLight = this.gameObject.transform.GetChild(0).GetComponent<Light>();
         flame = this.gameObject.transform.GetChild(1).GetComponent<ParticleSystem>().emission;
-        gameOverController = GameObject.FindGameObjectWithTag("Player").GetComponent<GameOverController>();
+        gameOverController = GameObject.Find("GameOverController").GetComponent<GameOverController>();
     }
 
     void OnTriggerEnter(Collider c) {
