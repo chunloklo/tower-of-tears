@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GroundCheck groundCheck;
 
+    public Vector3 additionalDisplacement;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         groundCheck = GetComponent<GroundCheck>();
         prevInput = GetInputVector();
         prevSpeed = 0;
+        additionalDisplacement = new Vector3(0, 0, 0);
 
 
     }
@@ -92,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         float moveSpeed = Mathf.Lerp(prevSpeed, speed * inputVec.magnitude, speedLerp * Time.deltaTime);
 
         prevSpeed = moveSpeed;
-        rb.MovePosition(rb.position + targetVector * moveSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + targetVector * moveSpeed * Time.deltaTime + additionalDisplacement);
         //Debug.Log(string.Format("Speed: {0}", moveSpeed / speed));
         anim.SetFloat("forward", moveSpeed / speed);
         //anim.SetFloat("speed", moveSpeed / speed);
