@@ -10,7 +10,7 @@ public class GameStarter : MonoBehaviour
 
     public void Start()
     {
-        ct = ct.GetComponent<CutsceneTimer>();
+        ct = GetComponent<CutsceneTimer>();
     }
 
     public void Update()

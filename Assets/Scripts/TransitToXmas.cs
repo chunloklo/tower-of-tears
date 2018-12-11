@@ -37,7 +37,7 @@ public class TransitToXmas : MonoBehaviour
     IEnumerator waitThenTransition()
     {
         yield return new WaitForSeconds(0.7F);
-        SceneManager.LoadScene("SnowLevel");
+        SceneManager.LoadScene("SnowLevelIntroCutscene");
         Debug.Log("waiting for transition");
 
     }

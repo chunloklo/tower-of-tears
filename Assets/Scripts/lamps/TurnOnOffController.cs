@@ -23,10 +23,14 @@ public class TurnOnOffController : MonoBehaviour {
     {
         wallLight = this.gameObject.transform.GetChild(0).GetComponent<Light>();
         flame = this.gameObject.transform.GetChild(1).GetComponent<ParticleSystem>().emission;
-        gameOverController = GameObject.FindGameObjectWithTag("Player").GetComponent<GameOverController>();
+        gameOverController = GameObject.Find("GameOverController").GetComponent<GameOverController>();
     }
 
     void OnTriggerEnter(Collider c) {
+        if (c.gameObject.layer != LayerMask.NameToLayer("player"))
+        {
+            return;
+        }
         // turn on point light and flame particles
         if (!wallLight.enabled) {
             wallLight.enabled = true;

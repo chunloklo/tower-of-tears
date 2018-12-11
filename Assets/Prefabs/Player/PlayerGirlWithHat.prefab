@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 114311299040032818}
   - component: {fileID: 114492284676757720}
   - component: {fileID: 114516097864259350}
+  - component: {fileID: 114154958594005398}
   m_Layer: 10
   m_Name: PlayerGirlWithHat
   m_TagString: Player
@@ -1346,7 +1347,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612023573480384}
   m_LocalRotation: {x: -0, y: 0.48976433, z: -0, w: 0.87185484}
-  m_LocalPosition: {x: 9.507, y: 4.279, z: 7.115}
+  m_LocalPosition: {x: -2.03, y: 0.7, z: -8.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4363551889125960}
@@ -2033,6 +2034,17 @@ MonoBehaviour:
   - {fileID: 114954456579957870}
   - {fileID: 114286639101862532}
   - {fileID: 114660463916253338}
+--- !u!114 &114154958594005398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612023573480384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1922d9845b97d490b8e58690af8c0399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114170191202419968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2386,7 +2398,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}

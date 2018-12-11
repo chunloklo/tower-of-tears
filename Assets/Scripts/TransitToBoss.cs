@@ -19,7 +19,7 @@ public class TransitToBoss : MonoBehaviour {
     IEnumerator waitThenTransition()
     {
         yield return new WaitForSeconds(0.7F);
-        SceneManager.LoadScene("AlphaDemoBoss");
+        SceneManager.LoadScene("AlphaBossIntroCutscene");
 
     }
 }
