@@ -39,6 +39,11 @@ public class CollectibleHeart : MonoBehaviour {
                 Destroy(this.gameObject);
                 ph.ReceiveHealth(heartHealthVal);
             }
+
+            if (!given && ph.currentHealth >= ph.startingHealth)
+            {
+                EventManager.TriggerEvent<HeartInactiveEvent, Vector3>(c.transform.position);
+            }
         }
     }
 }

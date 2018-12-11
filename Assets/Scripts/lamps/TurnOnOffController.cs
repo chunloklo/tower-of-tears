@@ -27,6 +27,10 @@ public class TurnOnOffController : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider c) {
+        if (c.gameObject.layer != LayerMask.NameToLayer("player"))
+        {
+            return;
+        }
         // turn on point light and flame particles
         if (!wallLight.enabled) {
             wallLight.enabled = true;

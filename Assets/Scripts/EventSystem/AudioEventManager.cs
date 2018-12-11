@@ -14,6 +14,7 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip torchLightAudio;
     public AudioClip trapDisableAudio;
     public AudioClip bossRangeAttackAudio;
+    public AudioClip heartInactiveAudio;
 
     private UnityAction<Vector3> bombBounceEventListener;
     private UnityAction<Vector3> playerHurtEventListener;
@@ -21,6 +22,7 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> torchLightEventListener;
     private UnityAction<Vector3> trapDisableEventListener;
     private UnityAction<Vector3> bossRangeAttackEventListener;
+    private UnityAction<Vector3> heartInactiveEventListener;
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class AudioEventManager : MonoBehaviour
         torchLightEventListener = new UnityAction<Vector3>(torchLightEventHandler);
         trapDisableEventListener = new UnityAction<Vector3>(trapDisableEventHandler);
         bossRangeAttackEventListener = new UnityAction<Vector3>(bossRangeAttackEventHandler);
+        heartInactiveEventListener = new UnityAction<Vector3>(heartInactiveEventHandler);
     }
 
 
@@ -51,6 +54,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StartListening<TorchLightEvent, Vector3>(trapDisableEventListener);
         EventManager.StartListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
+        EventManager.StartListening<HeartInactiveEvent, Vector3>(heartInactiveEventListener);
 
     }
 
@@ -62,6 +66,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StopListening<TorchLightEvent, Vector3>(trapDisableEventListener);
         EventManager.StopListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
+        EventManager.StopListening<HeartInactiveEvent, Vector3>(heartInactiveEventListener);
     }
 
     
@@ -160,6 +165,23 @@ public class AudioEventManager : MonoBehaviour
             EventSound3D snd = Instantiate(eventSound3DPrefab, worldPos, Quaternion.identity, null);
 
             snd.audioSrc.clip = this.bossRangeAttackAudio;
+
+            snd.audioSrc.minDistance = 10f;
+            snd.audioSrc.maxDistance = 500f;
+
+            snd.audioSrc.Play();
+        }
+    }
+
+    void heartInactiveEventHandler(Vector3 worldPos)
+    {
+        //AudioSource.PlayClipAtPoint(this.explosionAudio, worldPos, 1f);
+        if (eventSound3DPrefab)
+        {
+
+            EventSound3D snd = Instantiate(eventSound3DPrefab, worldPos, Quaternion.identity, null);
+
+            snd.audioSrc.clip = this.heartInactiveAudio;
 
             snd.audioSrc.minDistance = 10f;
             snd.audioSrc.maxDistance = 500f;
