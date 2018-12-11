@@ -40,6 +40,12 @@ public class PlayerHealth : MonoBehaviour
 
         sk = gameObject.GetComponentsInChildren<SkinnedMeshRenderer>()[0];
         originalColor = sk.material.color;
+
+        hearts[0] = GameObject.Find("Heart_1").GetComponent<Image>();
+        hearts[1] = GameObject.Find("Heart_2").GetComponent<Image>();
+        hearts[2] = GameObject.Find("Heart_3").GetComponent<Image>();
+        hearts[3] = GameObject.Find("Heart_4").GetComponent<Image>();
+        hearts[4] = GameObject.Find("Heart_5").GetComponent<Image>();
     }
 
 
