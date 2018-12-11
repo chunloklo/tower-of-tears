@@ -5282,7 +5282,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 3.4
+    scalar: 3.7
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -9906,7 +9906,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 3.4
+    scalar: 3.7
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -16689,7 +16689,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 3.4
+    scalar: 3.7
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -22422,9 +22422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 284342622}
-  moveTightness: 0.4
-  moveHitTightness: 10
-  lookTightness: 5
+  tightness: 0.1
   speedH: 1
   speedV: 1
   invert: 0
