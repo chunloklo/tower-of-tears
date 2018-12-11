@@ -14,6 +14,7 @@ public class AudioEventManager : MonoBehaviour
     public AudioClip torchLightAudio;
     public AudioClip trapDisableAudio;
     public AudioClip bossRangeAttackAudio;
+	public AudioClip[] footstepAudio;
 
     private UnityAction<Vector3> bombBounceEventListener;
     private UnityAction<Vector3> playerHurtEventListener;
@@ -21,6 +22,7 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> torchLightEventListener;
     private UnityAction<Vector3> trapDisableEventListener;
     private UnityAction<Vector3> bossRangeAttackEventListener;
+	private UnityAction<Vector3> footstepEventListener;
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class AudioEventManager : MonoBehaviour
         torchLightEventListener = new UnityAction<Vector3>(torchLightEventHandler);
         trapDisableEventListener = new UnityAction<Vector3>(trapDisableEventHandler);
         bossRangeAttackEventListener = new UnityAction<Vector3>(bossRangeAttackEventHandler);
+		footstepEventListener = new UnityAction<Vector3>(footstepEventHandler);
     }
 
 
@@ -51,6 +54,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StartListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StartListening<TorchLightEvent, Vector3>(trapDisableEventListener);
         EventManager.StartListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
+		EventManager.StartListening<FootstepEvent, Vector3>(footstepEventListener);
 
     }
 
@@ -62,6 +66,7 @@ public class AudioEventManager : MonoBehaviour
         EventManager.StopListening<TorchLightEvent, Vector3>(torchLightEventListener);
         EventManager.StopListening<TorchLightEvent, Vector3>(trapDisableEventListener);
         EventManager.StopListening<BossRangeAttackEvent, Vector3>(bossRangeAttackEventListener);
+		EventManager.StopListening<FootstepEvent, Vector3>(footstepEventListener);
     }
 
     
@@ -167,4 +172,21 @@ public class AudioEventManager : MonoBehaviour
             snd.audioSrc.Play();
         }
     }
+
+	void footstepEventHandler(Vector3 pos) {
+
+		if (eventSound3DPrefab)
+		{
+			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
+
+			snd.audioSrc.clip = this.footstepAudio[Random.Range(0, footstepAudio.Length)];
+
+			snd.audioSrc.minDistance = 5f;
+			snd.audioSrc.maxDistance = 100f;
+
+			snd.audioSrc.Play();
+		}
+
+
+	}
 }
