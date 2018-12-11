@@ -180,22 +180,7 @@ public class AudioEventManager : MonoBehaviour
         }
     }
 
-	void footstepEventHandler(Vector3 pos) {
 
-		if (eventSound3DPrefab)
-		{
-			EventSound3D snd = Instantiate(eventSound3DPrefab, pos, Quaternion.identity, null);
-
-			snd.audioSrc.clip = this.footstepAudio[Random.Range(0, footstepAudio.Length)];
-
-			snd.audioSrc.minDistance = 5f;
-			snd.audioSrc.maxDistance = 100f;
-
-			snd.audioSrc.Play();
-		}
-
-
-	}
     void heartInactiveEventHandler(Vector3 worldPos)
     {
         //AudioSource.PlayClipAtPoint(this.explosionAudio, worldPos, 1f);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.47702497, g: 0.49205875, b: 0.53076476, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -466,7 +466,7 @@ MonoBehaviour:
   bossRangeAttackAudio: {fileID: 8300000, guid: 285a7b82fd9ff4e47955af483cb49bcf,
     type: 3}
   heartInactiveAudio: {fileID: 8300000, guid: 30875cf8c27de374db94c95e3df38537, type: 3}
-  footstepAudio: {fileID: 0}
+  footstepAudio: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
 --- !u!4 &157565060
 Transform:
   m_ObjectHideFlags: 0
@@ -3612,6 +3612,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1612023573480384, guid: 262c520f6555545ce8d236f309fd3c80,
     type: 2}
   m_PrefabInternal: {fileID: 1961474277}
+--- !u!114 &2087038422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087038421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87af4f46323c9441fa6808013199d8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2088525128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 115752, guid: 731670d05affd0045a25600d2045889f,
