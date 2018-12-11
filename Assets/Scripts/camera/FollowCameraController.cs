@@ -22,6 +22,8 @@ public class FollowCameraController : MonoBehaviour {
 
     public bool disabled;
 
+    private float distance = 1;
+
     // Use this for initialization
     void Start () {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
@@ -54,7 +56,6 @@ public class FollowCameraController : MonoBehaviour {
                 pitch -= speedV * Input.GetAxis("Mouse Y");
             }
         }
-        
         
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
