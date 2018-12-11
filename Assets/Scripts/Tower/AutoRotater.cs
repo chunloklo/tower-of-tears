@@ -20,6 +20,8 @@ public class AutoRotater : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody>();
         rc = GetComponent<RotateChild>();
+        touchPlayer = false;
+        prevDisplacement = new Vector3(0, 0, 0);
     }
 
     private void LateUpdate()
@@ -64,16 +66,15 @@ public class AutoRotater : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject player = GameObject.FindWithTag("Player");
         if (collision.collider.tag == "Player")
         {
+            Debug.Log("touched player");
             touchPlayer = true;
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        GameObject player = GameObject.FindWithTag("Player");
         if (collision.collider.tag == "Player")
         {
             touchPlayer = false;
