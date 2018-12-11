@@ -25,7 +25,7 @@ public class TowerRotater : MonoBehaviour {
 
         for (int i = 0; i < pieces.Length; i++)
         {
-            pieces[i].transform.localRotation *= Quaternion.Slerp(Quaternion.identity, delta, ratio[i]); ;
+            pieces[i].transform.localRotation *= Quaternion.SlerpUnclamped(Quaternion.identity, delta, ratio[i]); ;
         }
     }
 }
