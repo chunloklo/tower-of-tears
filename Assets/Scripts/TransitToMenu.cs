@@ -8,13 +8,11 @@ public class TransitToMenu : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("hi");
         //Cursor.visible = true;
     }
 
     public void ShowMenu()
     {
-        Debug.Log("hellooo");
         if (animator != null)
         {
             animator.SetTrigger("FadeOut");
