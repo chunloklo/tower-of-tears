@@ -27,6 +27,7 @@ public class FollowCameraController : MonoBehaviour {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
         //offset = transform.position - player.transform.position;
         offset = new Vector3(0, 2, -5);
+        player = GameObject.FindGameObjectWithTag("Player");
         lookAtPosition = player.transform.position;
         mouseOffset = offset;
         Cursor.visible = false;
