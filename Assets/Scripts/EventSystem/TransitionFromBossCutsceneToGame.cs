@@ -10,7 +10,7 @@ public class TransitionFromBossCutsceneToGame : MonoBehaviour
 
     public void Start()
     {
-        ct = GetComponent<CutsceneTimerSnow>();
+        ct = ct.GetComponent<CutsceneTimerSnow>();
     }
 
     public void Update()

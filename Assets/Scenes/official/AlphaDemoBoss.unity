@@ -466,6 +466,7 @@ MonoBehaviour:
   bossRangeAttackAudio: {fileID: 8300000, guid: 285a7b82fd9ff4e47955af483cb49bcf,
     type: 3}
   heartInactiveAudio: {fileID: 8300000, guid: 30875cf8c27de374db94c95e3df38537, type: 3}
+  footstepAudio: {fileID: 0}
 --- !u!4 &157565060
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &661364958
 MonoBehaviour:
   m_ObjectHideFlags: 0
