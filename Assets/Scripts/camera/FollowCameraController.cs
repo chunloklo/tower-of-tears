@@ -43,7 +43,8 @@ public class FollowCameraController : MonoBehaviour {
             return;
         }
         //rotations based off mouse movement
-        if (Input.GetMouseButton(1))
+        if(true)
+        //if (Input.GetMouseButton(1))
         {
             if (invert)
             {
