@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class RotateChild : MonoBehaviour {
 
+    public bool playerContact;
 
-    public TowerRotater parent;
-    public Rigidbody parentRB;
-
-	// Use this for initialization
-	void Start () {
-        parent = transform.parent.GetComponent<TowerRotater>();
-        parentRB = transform.parent.GetComponent<Rigidbody>();
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!playerContact)
+        {
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            parentRB.constraints = RigidbodyConstraints.FreezePositionX |
-                                RigidbodyConstraints.FreezePositionY |
-                                RigidbodyConstraints.FreezePositionZ |
-                                RigidbodyConstraints.FreezeRotationX |
-                                RigidbodyConstraints.FreezeRotationZ;
+            playerContact = true;
         }
     }
 
@@ -35,12 +31,9 @@ public class RotateChild : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            parentRB.constraints = RigidbodyConstraints.FreezePositionX |
-                                RigidbodyConstraints.FreezePositionY |
-                                RigidbodyConstraints.FreezePositionZ | 
-                                RigidbodyConstraints.FreezeRotationX |
-                                RigidbodyConstraints.FreezeRotationY |
-                                RigidbodyConstraints.FreezeRotationZ;
+            playerContact = false;
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 }
