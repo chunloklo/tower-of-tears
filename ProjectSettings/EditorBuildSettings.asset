@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/official/AlphaBossIntroCutscene.unity
     guid: 30cc891251b220d459faf00f547d457a
+  - enabled: 1
+    path: Assets/Scenes/official/AlphaDemoControls.unity
+    guid: 6071cbb48d121d446aa28c386538e921
   m_configObjects: {}
