@@ -244,7 +244,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.93
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -252,7 +252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.62
+      value: 8.11
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -280,11 +280,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.9
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.9
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.y
@@ -1030,12 +1030,12 @@ Prefab:
     - target: {fileID: 59812189608450260, guid: 48080e52965287442a1971e0760a46f4,
         type: 2}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.07536196
+      value: -0.09033928
       objectReference: {fileID: 0}
     - target: {fileID: 59812189608450260, guid: 48080e52965287442a1971e0760a46f4,
         type: 2}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.13865924
+      value: 0.14645699
       objectReference: {fileID: 0}
     - target: {fileID: 4024246742365214, guid: 48080e52965287442a1971e0760a46f4, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1052,7 +1052,7 @@ Prefab:
     - target: {fileID: 59812189608450260, guid: 48080e52965287442a1971e0760a46f4,
         type: 2}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.00000059604645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54694036079720844, guid: 48080e52965287442a1971e0760a46f4,
         type: 2}
@@ -2533,7 +2533,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.72
+      value: 4.92
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2541,7 +2541,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.84
+      value: 7.29
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2569,11 +2569,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.9
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.9
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4642099302027548, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
       propertyPath: m_LocalScale.y
@@ -3299,7 +3299,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1794137824}
   m_LocalRotation: {x: -0, y: 0.83028364, z: -0, w: 0.55734116}
-  m_LocalPosition: {x: 4.08, y: 0.43, z: 7.96}
+  m_LocalPosition: {x: 4.25, y: 0.43, z: 8.37}
   m_LocalScale: {x: 3.7640784, y: 0.5709556, z: 4.394444}
   m_Children: []
   m_Father: {fileID: 207492662}

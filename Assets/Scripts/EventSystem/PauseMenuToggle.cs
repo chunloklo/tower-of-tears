@@ -10,7 +10,7 @@ public class PauseMenuToggle : MonoBehaviour {
     public FollowCameraController camController;
     private CanvasGroup canvasGroup;
         
-	void Awake () {
+	void Start () {
 
         camController = Camera.main.GetComponent<FollowCameraController>();
 
@@ -32,6 +32,14 @@ public class PauseMenuToggle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (canvasGroup.interactable)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             

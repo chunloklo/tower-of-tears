@@ -304,6 +304,8 @@ MonoBehaviour:
   torchLightAudio: {fileID: 8300000, guid: 0d7795873db34614db4537580115bad6, type: 3}
   trapDisableAudio: {fileID: 8300000, guid: c5b83f0ef02e84d4ea7cc238e7f00e75, type: 3}
   bossRangeAttackAudio: {fileID: 0}
+  heartInactiveAudio: {fileID: 0}
+  footstepAudio: {fileID: 0}
 --- !u!4 &73190636
 Transform:
   m_ObjectHideFlags: 0
@@ -2101,6 +2103,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114170191202419968, guid: 262c520f6555545ce8d236f309fd3c80,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95684386635702408, guid: 262c520f6555545ce8d236f309fd3c80,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1f071db4aa4ac84c918501cf74f80e7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262c520f6555545ce8d236f309fd3c80, type: 2}
   m_IsPrefabAsset: 0
@@ -20339,12 +20351,27 @@ Prefab:
     - target: {fileID: 224780259869216352, guid: a3fa98eac6d00fa44a55c11df4e1751d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224523083108485814, guid: a3fa98eac6d00fa44a55c11df4e1751d,
         type: 2}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224677254271342786, guid: a3fa98eac6d00fa44a55c11df4e1751d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224295911469247934, guid: a3fa98eac6d00fa44a55c11df4e1751d,
+        type: 2}
+      propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224079648028806770, guid: a3fa98eac6d00fa44a55c11df4e1751d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3fa98eac6d00fa44a55c11df4e1751d, type: 2}

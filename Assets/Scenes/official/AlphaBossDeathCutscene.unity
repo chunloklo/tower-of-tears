@@ -216,6 +216,8 @@ MonoBehaviour:
   trapDisableAudio: {fileID: 8300000, guid: c5b83f0ef02e84d4ea7cc238e7f00e75, type: 3}
   bossRangeAttackAudio: {fileID: 8300000, guid: 285a7b82fd9ff4e47955af483cb49bcf,
     type: 3}
+  heartInactiveAudio: {fileID: 0}
+  footstepAudio: {fileID: 0}
 --- !u!4 &157565060
 Transform:
   m_ObjectHideFlags: 0
@@ -9621,7 +9623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1546515639126320, guid: 1ab981bd7068755478beed335300e3a9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54191945544290356, guid: 1ab981bd7068755478beed335300e3a9,
         type: 2}

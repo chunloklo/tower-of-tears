@@ -316,6 +316,8 @@ MonoBehaviour:
   torchLightAudio: {fileID: 8300000, guid: 0d7795873db34614db4537580115bad6, type: 3}
   trapDisableAudio: {fileID: 8300000, guid: c5b83f0ef02e84d4ea7cc238e7f00e75, type: 3}
   bossRangeAttackAudio: {fileID: 0}
+  heartInactiveAudio: {fileID: 0}
+  footstepAudio: {fileID: 0}
 --- !u!4 &73190636
 Transform:
   m_ObjectHideFlags: 0
@@ -4561,6 +4563,11 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2a51ba73f30ec6f44bfba09ac8b2c0b1, type: 2}
+    - target: {fileID: 114170191202419968, guid: 262c520f6555545ce8d236f309fd3c80,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 262c520f6555545ce8d236f309fd3c80, type: 2}
   m_IsPrefabAsset: 0
