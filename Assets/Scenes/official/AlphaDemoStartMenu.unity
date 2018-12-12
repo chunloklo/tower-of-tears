@@ -1660,7 +1660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you ready?
+  m_Text: Tower of Tears
 --- !u!222 &1323459959
 CanvasRenderer:
   m_ObjectHideFlags: 0
