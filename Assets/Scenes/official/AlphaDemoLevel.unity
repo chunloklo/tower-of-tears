@@ -1982,7 +1982,7 @@ Prefab:
     - target: {fileID: 114038036899994254, guid: 9e3bed304ba9cc24da73c37be273b70f,
         type: 2}
       propertyPath: pushBack
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e3bed304ba9cc24da73c37be273b70f, type: 2}
