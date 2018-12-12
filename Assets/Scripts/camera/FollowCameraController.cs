@@ -22,7 +22,7 @@ public class FollowCameraController : MonoBehaviour {
 
     public bool disabled;
 
-    private float distance = 1;
+    private float speedZoom = 1.0f;
 
     // Use this for initialization
     void Start () {
@@ -57,13 +57,27 @@ public class FollowCameraController : MonoBehaviour {
                 pitch -= speedV * Input.GetAxis("Mouse Y");
             }
         }
-        
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (scroll < 0)
+        {
+            offset = offset.normalized * (offset.magnitude + speedZoom); 
+        }
+        if (scroll > 0)
+        {
+            offset = offset.normalized * (offset.magnitude - speedZoom);
+        }
+
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         Vector3 rotateOffset = Quaternion.Euler(pitch, yaw, 0) * offset;
         transform.LookAt(player.transform.position);
 
+
+
         Vector3 target = player.transform.position + rotateOffset;
+
 
 
         Vector3 rayCastOrigin = player.transform.position + new Vector3(0, offset.y, 0);
