@@ -107,6 +107,14 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isGrounded", groundCheck.IsGrounded());
         if (Input.GetButtonDown("Jump") && groundCheck.IsGrounded())
         {
+            try
+            {
+                GetComponent<FootstepGirl>().PlayJump();
+            } catch
+            {
+                Debug.Log("FootStep sound play unsuccessful");
+            }
+
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             anim.SetTrigger("jump");
         }

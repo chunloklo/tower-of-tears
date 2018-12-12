@@ -25,6 +25,7 @@ public class AudioEventManager : MonoBehaviour
     private UnityAction<Vector3> bossRangeAttackEventListener;
     private UnityAction<Vector3> heartInactiveEventListener;
     private UnityAction<Vector3> footstepEventListener;
+    private UnityAction<Vector3> jumpEventListener;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class AudioEventManager : MonoBehaviour
 		footstepEventListener = new UnityAction<Vector3>(footstepEventHandler);
         heartInactiveEventListener = new UnityAction<Vector3>(heartInactiveEventHandler);
         footstepEventListener = new UnityAction<Vector3>(footstepEventHandler);
+        jumpEventListener = new UnityAction<Vector3>(jumpEventHandler);
     }
 
 
@@ -61,6 +63,7 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StartListening<FootstepEvent, Vector3>(footstepEventListener);
         EventManager.StartListening<HeartInactiveEvent, Vector3>(heartInactiveEventListener);
         EventManager.StartListening<FootstepEvent, Vector3>(footstepEventListener);
+        EventManager.StartListening<JumpEvent, Vector3>(jumpEventListener);
     }
 
     void OnDisable()
@@ -74,6 +77,7 @@ public class AudioEventManager : MonoBehaviour
 		EventManager.StopListening<FootstepEvent, Vector3>(footstepEventListener);
         EventManager.StopListening<HeartInactiveEvent, Vector3>(heartInactiveEventListener);
         EventManager.StopListening<FootstepEvent, Vector3>(footstepEventListener);
+        EventManager.StopListening<JumpEvent, Vector3>(jumpEventListener);
     }
 
     
@@ -208,7 +212,26 @@ public class AudioEventManager : MonoBehaviour
 
             snd.audioSrc.clip = this.footstepAudio;
 
-            snd.audioSrc.volume = 0.5f;
+            snd.audioSrc.volume = 0.15f;
+
+            snd.audioSrc.minDistance = 10f;
+            snd.audioSrc.maxDistance = 500f;
+
+            snd.audioSrc.Play();
+        }
+    }
+
+    void jumpEventHandler(Vector3 worldPos)
+    {
+        //AudioSource.PlayClipAtPoint(this.explosionAudio, worldPos, 1f);
+        if (eventSound3DPrefab)
+        {
+
+            EventSound3D snd = Instantiate(eventSound3DPrefab, worldPos, Quaternion.identity, null);
+
+            snd.audioSrc.clip = this.footstepAudio;
+
+            snd.audioSrc.volume = 0.3f;
 
             snd.audioSrc.minDistance = 10f;
             snd.audioSrc.maxDistance = 500f;

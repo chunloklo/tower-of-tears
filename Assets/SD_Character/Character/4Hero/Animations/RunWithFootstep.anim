@@ -32390,10 +32390,9 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.06666667
-    functionName: ExecuteFootstep
+    functionName: PlayFootstep
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 87af4f46323c9441fa6808013199d8b8,
-      type: 3}
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
