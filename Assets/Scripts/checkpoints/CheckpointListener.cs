@@ -21,9 +21,11 @@ public class CheckpointListener : MonoBehaviour {
     {
         if (c.attachedRigidbody != null && c.tag == "Player")
         {
+            Debug.Log("level 1");
             cm = c.attachedRigidbody.gameObject.GetComponent<CheckpointManager>();
             if (cm != null)
             {
+                Debug.Log("level 2");
                 if (!firstTrig)
                 {
                     firstTrig = true;
