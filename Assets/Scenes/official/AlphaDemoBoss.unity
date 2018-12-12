@@ -2340,6 +2340,11 @@ Prefab:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1390014894}
+    - target: {fileID: 114009118842254040, guid: a3fa98eac6d00fa44a55c11df4e1751d,
+        type: 2}
+      propertyPath: camController
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3fa98eac6d00fa44a55c11df4e1751d, type: 2}
   m_IsPrefabAsset: 0

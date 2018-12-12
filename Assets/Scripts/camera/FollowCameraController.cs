@@ -24,6 +24,9 @@ public class FollowCameraController : MonoBehaviour {
 
     private float speedZoom = 1.0f;
 
+    private float maxScroll = 30;
+    private float minScroll = 2;
+
     // Use this for initialization
     void Start () {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
@@ -58,13 +61,13 @@ public class FollowCameraController : MonoBehaviour {
             }
         }
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scroll < 0)
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll < 0 && offset.magnitude < maxScroll)
         {
             offset = offset.normalized * (offset.magnitude + speedZoom); 
         }
-        if (scroll > 0)
+        if (scroll > 0 && offset.magnitude > minScroll)
         {
             offset = offset.normalized * (offset.magnitude - speedZoom);
         }

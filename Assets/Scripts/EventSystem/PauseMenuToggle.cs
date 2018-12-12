@@ -11,6 +11,9 @@ public class PauseMenuToggle : MonoBehaviour {
     private CanvasGroup canvasGroup;
         
 	void Awake () {
+
+        camController = Camera.main.GetComponent<FollowCameraController>();
+
         if (GetComponent<CanvasGroup>() == null)
         {
             Debug.LogError("Cannot find component");
